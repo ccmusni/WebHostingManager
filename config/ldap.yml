@@ -1,0 +1,23 @@
+# config/ldap.yml
+# LDAP server configuration settings
+# Host is a Windows Domain Controller
+
+development:
+  host: mainserver
+  port: 389
+  domain: jeonsoft
+  base: DC=jeonsoft,DC=local
+  cn: CN=PPH Admins
+  ou: OU=JeonSoft Teams,OU=Jeonsoft Groups
+
+test:
+  host: examplehost
+  port: 389
+  domain: EXAMPLEDOMAIN
+  base: examplebase # OU=US-Tampa Bay,OU=North America,OU=Accounts,DC=ourdomain,DC=org
+
+production:
+  host: examplehost
+  port: 389
+  domain: EXAMPLEDOMAIN
+  base: examplebase # OU=US-Tampa Bay,OU=North America,OU=Accounts,DC=ourdomain,DC=org

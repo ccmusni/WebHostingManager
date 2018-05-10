@@ -1,0 +1,29 @@
+<div class="container-fluid">
+	<p/>
+	<h1>Account</h1>
+	<p/>
+
+	<p>
+	  <strong>Account Code:</strong>
+	  <%= @server_account.AccountCode %>
+	</p>
+	<p>
+	  <strong>Account Name:</strong>
+	  <%= @server_account.AccountName %>
+	</p>
+	<p>
+	  This account is <strong><%= @server_account.Active == true ? 'active' : 'not active' %></strong>
+	</p>
+
+	<%= link_to 'Test Connection', "test_connection?id=#{@server_account.id}&account_code=#{@server_account.AccountCode}", method: :post, :class=>"btn btn-default btn btn-info", remote: true, id: :btn_test_connection, :onclick => "testConnection(false, #{@server_account.id});" %>
+	<p/>
+	<!-- Edit | Back | Delete | Test Connection Buttons -->
+	<div class="btn-group" role="group">
+		<%= link_to 'Edit', edit_server_account_path(@server_account), :class=>"btn btn-default btn btn-secondary" %>
+		<%= link_to 'Back', server_accounts_path, :class=>"btn btn-default btn btn-secondary" %>
+		<%= link_to 'Delete', server_account_path, :class=>"btn btn-default btn btn-danger", params: {:id => @server_account.id}, method: :delete, data: { confirm: 'Are you sure?' } %>
+	</div>
+
+	<p/>
+	<p id="notice"></p>
+</div>

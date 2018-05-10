@@ -1,0 +1,72 @@
+<%= hidden_field_tag :direction, params[:direction] %>
+<%= hidden_field_tag :sort, params[:sort] %>
+
+<table class="table pretty table-hover table-bordered" id="table_server_accounts">
+  <thead class="thead-inverse">
+    <tr>
+      <th><%= sortable "AccountCode"%></th>
+      <th><%= sortable "AccountName"%></th>
+      <th>System Server</th>
+      <th>System Database</th>
+      <th>Active</th>
+      <th>With ESS?</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% for server_account in @server_accounts %>
+      <tr class="clickable-row">
+        <td class="hidden-column"><%= server_account.Id %></td>
+        <td><%= server_account.AccountCode %></td>
+        <td><%= server_account.AccountName %></td>
+        <td><%= server_account.SystemServer %></td>
+        <td><%= server_account.SystemDatabase %></td>
+        <td><%= server_account.Active == true ? 'Yes' : 'No' %></td>
+        <td id="is_ess_enabled_<%= server_account.Id %>"><%= server_account.IsEnableESS ? 'Yes' : 'No' %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<div class="float-right">
+  <label class="custom-control custom-checkbox">
+    <%= check_box_tag :show_inactive, params[:show_inactive] == 'true' ? true : false, params[:show_inactive] == 'true' ? true : false, :class => "custom-control-input", :onchange=>"showInactiveAccounts(this)" %>
+    <span class="custom-control-description show-inactive-accounts">Show inactive accounts</span>&nbsp;
+    <span class="custom-control-indicator"></span>
+  </label>
+  <%= will_paginate @server_accounts %>
+</div>
+
+<style>
+.hidden-column {
+  display: none;
+}
+
+.color-white {
+  color: #fff;
+}
+</style>
+
+<script type="text/javascript">
+$('#table_server_accounts').on('click', '.clickable-row', function(event) {
+  //remove disabled class when one record is selected
+  if ($('#btn_enable_disable_ess').hasClass('disabled')) {
+    $('#btn_test_connection').removeClass('disabled');
+    $('#btn_test_connection').addClass('btn-info').removeClass('btn-danger');
+    $('#btn_enable_disable_ess').removeClass('disabled');
+  };
+
+  //update table record selection
+  $(this).addClass('bg-info color-white').siblings().removeClass('bg-info color-white');
+
+  //update button if for enable for disable ess
+  var is_enable_ess = $(this).find('td:eq(6)')[0].innerText;
+  if (is_enable_ess == 'No') {
+    $('#btn_enable_disable_ess').addClass('btn-info').removeClass('btn-danger');
+    $('#btn_enable_disable_ess')[0].innerText = 'Enable ESS';
+  }
+  else if (is_enable_ess == 'Yes') {
+    $('#btn_enable_disable_ess').addClass('btn-danger').removeClass('btn-info');
+    $('#btn_enable_disable_ess')[0].innerText = 'Disable ESS';
+  };
+});
+</script>

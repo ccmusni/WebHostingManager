@@ -1,0 +1,21 @@
+if ('<%= escape_javascript(@notice) %>' != '') {
+
+	$("#notice").text('<%= escape_javascript(@notice) %>');
+	if (<%= @is_test_connection_failed %>) {
+		$("#notice").removeClass('alert alert-info');
+		$("#notice").addClass('alert alert-danger');
+	}
+	else {
+		$("#notice").removeClass('alert alert-danger');
+		$("#notice").addClass('alert alert-info');
+	};
+	$('#notice').show();
+	$('#notice').delay(3000).fadeOut();
+
+};
+
+preloader();
+//Enable after getting response
+$('#btn_test_connection').removeClass('disabled');
+$('#btn_update_connection').removeClass('disabled');
+$("#btn_close").prop("disabled", false);

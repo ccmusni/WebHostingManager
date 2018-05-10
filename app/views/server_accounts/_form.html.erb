@@ -1,0 +1,104 @@
+<%= form_with(model: server_account, local: true) do |form| %>
+  <% if server_account.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(server_account.errors.count, "error") %> prohibited this server_account from being saved:</h2>
+
+      <ul>
+      <% server_account.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <!-- Modal for Connection -->
+  <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" data-backdrop="static" data-keyboard="false">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Set Connection</h5>
+          <!-- <button id="btn_cross_close" type="button" class="close" data-dismiss="modal" aria-label="Close"> -->
+            <!-- <span aria-hidden="true">&times;</span> -->
+          <!-- </button> -->
+        </div>
+        <div class="modal-body">
+          <!-- Database Connection Attributes -->
+          <div class="form-group">
+            <span class="custom-control-description">System Server</span>
+            <%= form.text_field :SystemServer, id: :server_account_SystemServer, :class => "form-control" %>
+            
+            <span class="custom-control-description">System Database</span>
+            <%= form.text_field :SystemDatabase, id: :server_account_SystemDatabase, :class => "form-control" %>
+          </div>
+
+          <div class="custom-controls-stacked">
+            <label class="custom-control custom-radio">
+              <%= form.radio_button :UseWindowsNT, true, :class => "custom-control-input", :onclick=>"$('#username_password :input').attr('disabled', true);", id: :server_account_UseWindowsNT %>
+              <span class="custom-control-indicator"></span>
+              <span class="custom-control-description">Use Windows NT Integrated security</span>
+            </label>
+            <label class="custom-control custom-radio">
+              <%= form.radio_button :UseWindowsNT, false, :class => "custom-control-input", :onclick=>"$('#username_password :input').attr('disabled', false);" %>
+              <span class="custom-control-indicator"></span>
+              <span class="custom-control-description">Use a specific user name and password</span>
+            </label>
+            <div id="username_password" class="form-group">
+              <%= form.label :Username %>
+              <%= form.text_field :Username, id: :server_account_Username, :class => "form-control" %>
+              <%= form.label :Password %>
+              <%= form.password_field :Password, id: :server_account_Password, :class => "form-control", :value => "server_account_Password" %>
+            </div>
+          </div>
+    
+          <%= link_to 'Test Connection', "/server_accounts/test_connection?id=#{server_account.Id}&is_editing=true&account_code=#{server_account.AccountCode}&data_source=#{server_account.SystemServer}&database=#{server_account.SystemDatabase}&use_windows_nt=#{server_account.UseWindowsNT}&username=#{server_account.Username}&password=#{server_account.Password}", :onclick=> "testConnection();", method: :post, :class=>"btn btn-default btn btn-secondary", remote: true, id: :btn_test_connection %>
+
+          <p/>
+          <p id="notice"></p>
+        </div> <!-- End of modal-body -->
+        <div class="modal-footer">
+          <button id="btn_close" type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          <!-- <button id="btn_" type="button" class="btn btn-primary">Save changes</button> -->
+
+          <%= link_to 'Save changes', "/server_accounts/update_connection?id=#{server_account.Id}&data_source=#{server_account.SystemServer}&database=#{server_account.SystemDatabase}&use_windows_nt=#{server_account.UseWindowsNT}&username=#{server_account.Username}&password=#{server_account.Password}", :onclick=> "updateConnection();", method: :post, :class=>"btn btn-default btn btn-secondary", remote: true, id: :btn_update_connection %>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-lg-3.5 col-md-5 col-sm-6 col-xs-8">
+        <div class="form-group">
+          <%= form.hidden_field :Id, id: :server_account_Id, :class => "form-control" %>
+          <%= form.label :AccountCode, :value => 'Account Code' %>
+          <%= form.text_field :AccountCode, id: :server_account_AccountCode, :class => "form-control" %>
+        </div>
+        <div class="form-group">
+          <%= form.label :AccountName, :value => 'Account Name' %>
+          <%= form.text_field :AccountName, id: :server_account_AccountName, :class => "form-control" %>
+        </div>
+      </div>
+  </div>
+
+  <div class="form-check">
+    <label class="custom-control custom-checkbox">
+      <%= form.check_box :Active, id: :server_account_Active, :class => "custom-control-input" %>
+      <span class="custom-control-indicator"></span>
+      <span class="custom-control-description">This account is active</span>
+    </label>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :Connection %>
+    <%= form.hidden_field :Connection, id: :server_account_Connection, :class => "form-control" %>
+  </div>
+
+  <button type="button" class="btn btn-default btn btn-secondary" data-toggle="modal" data-target="#myModal" onclick="setConnection();">
+    Set Connection
+  </button>
+
+  <p/>
+
+  <div class="form-group">
+    <%= form.submit "#{@save_button_caption}", :class => "btn btn-secondary", id: :btnCreateUpdateCaption %>
+  </div>
+
+<% end %>

@@ -1,0 +1,27 @@
+# config/ldap.yml
+# LDAP server configuration settings
+# Host is a Windows Domain Controller
+
+development:
+  host: examplehost
+  port: 389
+  domain: EXAMPLEDOMAIN
+  base: examplebase # OU=US-Tampa Bay,OU=North America,OU=Accounts,DC=ourdomain,DC=org
+  cn: examplecn # CN=Admins
+  ou: exampleou	# OU=Admin Teams,OU=Admin Groups
+
+test:
+  host: examplehost
+  port: 389
+  domain: EXAMPLEDOMAIN
+  base: examplebase # OU=US-Tampa Bay,OU=North America,OU=Accounts,DC=ourdomain,DC=org
+  cn: examplecn # CN=Admins
+  ou: exampleou	# OU=Admin Teams,OU=Admin Groups
+
+production:
+  host: examplehost
+  port: 389
+  domain: EXAMPLEDOMAIN
+  base: examplebase # OU=US-Tampa Bay,OU=North America,OU=Accounts,DC=ourdomain,DC=org
+  cn: examplecn # CN=Admins
+  ou: exampleou	# OU=Admin Teams,OU=Admin Groups

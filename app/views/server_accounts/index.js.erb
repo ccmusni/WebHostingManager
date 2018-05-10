@@ -1,0 +1,10 @@
+//Catch server accounts upon loading
+$("#server_accounts").html("<%= escape_javascript(render("server_accounts")) %>");
+
+$('#btn_test_connection').removeClass('btn-info btn-danger');
+$('#btn_test_connection').addClass('disabled');
+$('#btn_enable_disable_ess').removeClass('btn-info btn-danger');
+$('#btn_enable_disable_ess').addClass('disabled');
+
+//close loading
+preloader();

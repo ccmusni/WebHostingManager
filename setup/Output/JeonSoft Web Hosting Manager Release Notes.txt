@@ -1,0 +1,13 @@
+JEONSOFT WEB HOSTING MANAGER
+----------------------
+   RELEASE NOTES
+----------------------
+BUILD 1.0
+*****SPECIFICATIONS*****
+1.	Web version of JeonSoft App Laucher
+		- Uses LDAP settings for login.
+		- Useful to create, edit, and delete server accounts.
+		- Useful to set and test database connection.
+
+2.	Features
+		- Enabled / Disable ESS

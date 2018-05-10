@@ -1,0 +1,32 @@
+</p>
+<h1>&nbsp;Accounts
+  <div class="float-right">
+    <%= form_tag(server_accounts_path, method: :get, :id => 'server_accounts_search', :class => "form-inline my-2 my-lg-0", :remote => true) do %>
+      <%= text_field_tag :search, params[:search], :class => "form-control mr-sm-2" %>
+      <%= submit_tag "Search", id: :btn_search_accounts, :class => "btn btn-outline-info my-2 my-sm-0", :onclick => "searchAccounts();" %>&nbsp;
+    <% end %>
+  </div>
+</h1>
+
+<%= form_tag(server_accounts_path, method: :get, :id => 'server_accounts_list', :remote => true) do %>
+	<div id='server_accounts'>
+		<%= render 'server_accounts' %>
+	</div>
+<% end %>
+
+<div class="btn-toolbar" role="toolbar" aria-label="Toolbar with button groups">
+	<div class="btn-group mr-2" role="group" aria-label="First group">
+		<%= link_to 'New Account', new_server_account_path, :class=>"btn btn-default btn btn-success" %>
+		<%= link_to 'Show', '#', id: :btn_show_account, :class=>"btn btn-default btn btn-secondary", :onclick=>"acountBtnActions(this, 'Show');" %>
+		<%= link_to 'Edit', '#', id: :btn_show_account, :class=>"btn btn-default btn btn-secondary", :onclick=>"acountBtnActions(this, 'Edit');" %>
+		<%= link_to 'Delete', '#', id: :btn_show_account, :class=>"btn btn-default btn btn-danger", method: :delete, :onclick=>"acountBtnActions(this, 'Delete');" %>
+	</div>
+	<div class="btn-group mr-2" role="group" aria-label="Second group">
+		<%= link_to 'Test Connection', "server_accounts/test_connection?", method: :post, remote: true, :onclick=>"acountBtnActions(this, 'TestConnection');", id: :btn_test_connection, :class=>"btn btn-default btn btn-secondary disabled" %>
+		<%= link_to 'Enable ESS', 'server_accounts/enable_ess?', method: :post, remote: true, :onclick=>"acountBtnActions(this, 'EnableDisableESS');",
+			id: :btn_enable_disable_ess, :class=>"btn btn-default btn btn-secondary disabled" %>
+	</div>
+</div>
+
+<br/>
+<p id="notice" class="alert"><%= notice %></p>

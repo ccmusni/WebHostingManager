@@ -1,0 +1,28 @@
+if ('<%= escape_javascript(@notice) %>' != '') {
+	//Update Enable ESS Button caption and params; Update With ESS? column value
+	$('#btn_enable_disable_ess')[0].innerText = '<%= @link_caption %>';
+	var params = "id=" + '<%= escape_javascript(@id) %>' +
+		"&client_code=" + '<%= escape_javascript(@client_code) %>';
+
+	 //Enable the Button
+	if ('<%= escape_javascript(@enable_ess) %>' == 'true') {
+		$('#btn_enable_disable_ess').addClass('btn-danger').removeClass('btn-info');
+		$("#notice").addClass('alert-info').removeClass('alert-danger');
+		$("#is_ess_enabled_<%= escape_javascript(@id) %>")[0].innerText = 'Yes';
+		params = params + "&enable=false";
+	}
+	else {
+		$('#btn_enable_disable_ess').addClass('btn-info').removeClass('btn-danger');
+		$("#notice").addClass('alert-danger').removeClass('alert-info');
+		$("#is_ess_enabled_<%= escape_javascript(@id) %>")[0].innerText = 'No';
+		params = params + "&enable=true";
+	};
+
+	//Show notice message
+	preloader();
+	$("#notice").text('<%= escape_javascript(@notice) %>');
+	$('#notice').show();
+	$('#notice').delay(500).fadeOut(function() {
+		$('#btn_enable_disable_ess').removeClass('disabled');
+	});	
+};

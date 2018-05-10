@@ -1,0 +1,12 @@
+<div class="container-fluid">
+	<p/>
+
+	<h1>Editing Account</h1>
+
+	<%= render 'form', server_account: @server_account %>
+
+	<div class="btn-group" role="group">
+		<%= link_to 'Show', @server_account, :class=>"btn btn-default btn btn-secondary" %>
+		<%= link_to 'Back', server_accounts_path, :class=>"btn btn-default btn btn-secondary" %>
+	</div>
+</div>

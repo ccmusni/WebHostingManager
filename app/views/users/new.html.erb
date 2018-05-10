@@ -1,0 +1,54 @@
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-md-12 col-xs-12" style="text-align: center; padding-bottom: 5px;">
+      <div style="font-size: 40px;">
+        <span class="label label-info">Web Hosting Manager</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-sm-4">&nbsp;</div>
+    <div class="col-sm-4">
+      <div class="row">
+        <div class="col-sm-12">
+          <h4>New User</h4>
+        </div>
+      </div>
+
+      <div class="col-sm-12">
+        <div id="user-container">
+          <div id="user-content">
+            <%= form_for(@user) do |f| %>
+                <% if @user.errors.any? %>
+                <div class="alert alert-danger">
+                  <ul>
+                    <% @user.errors.messages.each do |msg| %>
+                    <li><%= msg.last.last.html_safe %></li>
+                    <% end %>
+                  </ul>
+                </div>
+                <% end %>
+                <h6>Credentials</h6>
+                <div class="form-group">
+                  <%= f.text_field(:UserName, class: 'form-control', placeholder: 'Your name', autocomplete: 'off', name: 'UserName') %>
+                </div>
+                <div class="form-group">
+                  <%= f.text_field(:LoginName, class: 'form-control', placeholder: 'Your domain username', autocomplete: 'off', name: 'LoginName') %>
+                </div>
+                <div class="form-group">
+                  <input type="password" class="form-control" placeholder="Your domain password" autocomplete="off" name="password">
+                </div>
+                <div class="form-group">
+                  <button type="submit" class="btn btn-info">Sign Up</button>
+                  <a href="/login" class="btn btn-danger">Back</a>
+                </div>
+            <% end %>
+          </div>
+        </div>
+      </div>
+
+    </div>
+    <div class="col-sm-4">&nbsp;</div>
+  </div>
+</div>

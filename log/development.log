@@ -1,0 +1,1837 @@
+Started GET "/" for ::1 at 2017-11-24 09:29:29 +0800
+  [1m[35mSQL (2.0ms)[0m  [1m[35mUSE [PPH_JAPPL][0m
+  [1m[35m (47.0ms)[0m  [1m[34mSELECT [schema_migrations].[version] FROM [schema_migrations]  ORDER BY [schema_migrations].[version] ASC[0m
+Processing by LoginController#index as HTML
+  Rendering login/index.html.erb within layouts/application
+  Rendered login/index.html.erb within layouts/application (28.0ms)
+Completed 500 Internal Server Error in 1022ms (ActiveRecord: 0.0ms)
+
+
+  
+ActionView::Template::Error (Current ExecJS runtime does't support ES5. Please install node.js.):
+    2: <html>
+    3:   <head>
+    4:     <title>Web Hosting Manager</title>
+    5:     <%= javascript_include_tag "http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js", "jquery.rails.js" %>
+    6:     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    7:     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    8:     <%= stylesheet_link_tag    'stricky_footer', media: 'all', 'data-turbolinks-track': 'reload' %>
+  
+app/views/layouts/application.html.erb:5:in `_app_views_layouts_application_html_erb___1873562869_53581020'
+Started GET "/" for ::1 at 2017-11-24 09:33:29 +0800
+  [1m[35mSQL (0.0ms)[0m  [1m[35mUSE [PPH_JAPPL][0m
+  [1m[35m (1.0ms)[0m  [1m[34mSELECT [schema_migrations].[version] FROM [schema_migrations]  ORDER BY [schema_migrations].[version] ASC[0m
+Processing by LoginController#index as HTML
+  Rendering login/index.html.erb within layouts/application
+  Rendered login/index.html.erb within layouts/application (2.0ms)
+Completed 200 OK in 19283ms (Views: 19269.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-11-24 09:37:46 +0800
+  [1m[35mSQL (1.0ms)[0m  [1m[35mUSE [PPH_JAPPL][0m
+  [1m[35m (1.0ms)[0m  [1m[34mSELECT [schema_migrations].[version] FROM [schema_migrations]  ORDER BY [schema_migrations].[version] ASC[0m
+Processing by LoginController#index as HTML
+  Rendering login/index.html.erb within layouts/application
+  Rendered login/index.html.erb within layouts/application (2.0ms)
+Completed 200 OK in 795ms (Views: 779.0ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/login/authenticate" for 127.0.0.1 at 2017-11-24 09:38:07 +0800
+Processing by LoginController#authenticate as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"koyhMChucGbpUgtjooB7EIS+2c1lo1oqzmreCy0Nwl5m3eKclHtgaN4TAaj6hQ8eD59FdnecJ9OGjNGpFt/6pg==", "user_name"=>"clifford", "password"=>"[FILTERED]"}
+  [1m[36mUser Load (114.0ms)[0m  [1m[35mEXEC sp_executesql N'SELECT  [tblSecurityUsers].* FROM [tblSecurityUsers] WHERE [tblSecurityUsers].[LoginName] = @0  ORDER BY [tblSecurityUsers].[Id] ASC OFFSET 0 ROWS FETCH NEXT @1 ROWS ONLY', N'@0 varchar(50), @1 int', @0 = 'clifford', @1 = 1[0m  [["LoginName", nil], ["LIMIT", nil]]
+Redirected to http://localhost:3000/server_accounts
+Completed 302 Found in 889ms (ActiveRecord: 705.1ms)
+
+
+Started GET "/server_accounts" for 127.0.0.1 at 2017-11-24 09:38:08 +0800
+Processing by ServerAccountsController#index as HTML
+  [1m[36mServerAccount Load (296.0ms)[0m  [1m[35mEXEC sp_executesql N'SELECT  [tblServerAccounts].* FROM [tblServerAccounts] WHERE (Active = 1)  ORDER BY AccountCode asc OFFSET @0 ROWS FETCH NEXT @1 ROWS ONLY', N'@0 int, @1 int', @0 = 0, @1 = 6[0m  [["OFFSET", nil], ["LIMIT", nil]]
+  Rendering server_accounts/index.html.erb within layouts/application
+  [1m[35m (41.0ms)[0m  [1m[34mSELECT COUNT(*) FROM [tblServerAccounts] WHERE (Active = 1)[0m
+  Rendered server_accounts/_server_accounts.html.erb (118.0ms)
+  Rendered server_accounts/index.html.erb within layouts/application (131.0ms)
+Completed 200 OK in 866ms (Views: 350.8ms | ActiveRecord: 404.0ms)
+
+
+Started POST "/server_accounts/test_connection?id=4028&is_editing=false&data_source=undefined&database=undefined&use_windows_nt=false&username=undefined&password=[FILTERED]&account_code=undefined" for 127.0.0.1 at 2017-11-24 09:38:13 +0800
+Processing by ServerAccountsController#test_connection as JS
+  Parameters: {"id"=>"4028", "is_editing"=>"false", "data_source"=>"undefined", "database"=>"undefined", "use_windows_nt"=>"false", "username"=>"undefined", "password"=>"[FILTERED]", "account_code"=>"undefined"}
+  [1m[36mServerAccount Load (52.0ms)[0m  [1m[34mSELECT [tblServerAccounts].* FROM [tblServerAccounts] WHERE (Id = N'4028')[0m
+  Rendering server_accounts/test_connection.js.erb
+  Rendered server_accounts/test_connection.js.erb (1.0ms)
+Completed 200 OK in 181ms (Views: 36.0ms | ActiveRecord: 52.0ms)
+
+
+Started GET "/server_accounts?utf8=%E2%9C%93&direction=&sort=&show_inactive=true&search=&_=1511487489639" for 127.0.0.1 at 2017-11-24 09:38:16 +0800
+Processing by ServerAccountsController#index as JS
+  Parameters: {"utf8"=>"✓", "direction"=>"", "sort"=>"", "show_inactive"=>"true", "search"=>"", "_"=>"1511487489639"}
+  [1m[36mServerAccount Load (15.0ms)[0m  [1m[35mEXEC sp_executesql N'SELECT  [tblServerAccounts].* FROM [tblServerAccounts] WHERE (AccountCode LIKE N''%%'')  ORDER BY AccountCode asc OFFSET @0 ROWS FETCH NEXT @1 ROWS ONLY', N'@0 int, @1 int', @0 = 0, @1 = 6[0m  [["OFFSET", nil], ["LIMIT", nil]]
+  Rendering server_accounts/index.js.erb
+  [1m[35m (2.0ms)[0m  [1m[34mSELECT COUNT(*) FROM [tblServerAccounts] WHERE (AccountCode LIKE N'%%')[0m
+  Rendered server_accounts/_server_accounts.html.erb (6.0ms)
+  Rendered server_accounts/index.js.erb (106.0ms)
+Completed 200 OK in 355ms (Views: 229.0ms | ActiveRecord: 17.0ms)
+
+
+Started GET "/server_accounts?utf8=%E2%9C%93&direction=&sort=&search=&search=&_=1511487489640" for 127.0.0.1 at 2017-11-24 09:38:19 +0800
+Processing by ServerAccountsController#index as JS
+  Parameters: {"utf8"=>"✓", "direction"=>"", "sort"=>"", "search"=>"", "_"=>"1511487489640"}
+  [1m[36mServerAccount Load (4.0ms)[0m  [1m[35mEXEC sp_executesql N'SELECT  [tblServerAccounts].* FROM [tblServerAccounts] WHERE (Active = 1) AND (AccountCode LIKE N''%%'')  ORDER BY AccountCode asc OFFSET @0 ROWS FETCH NEXT @1 ROWS ONLY', N'@0 int, @1 int', @0 = 0, @1 = 6[0m  [["OFFSET", nil], ["LIMIT", nil]]
+  Rendering server_accounts/index.js.erb
+  [1m[35m (2.0ms)[0m  [1m[34mSELECT COUNT(*) FROM [tblServerAccounts] WHERE (Active = 1) AND (AccountCode LIKE N'%%')[0m
+  Rendered server_accounts/_server_accounts.html.erb (12.0ms)
+  Rendered server_accounts/index.js.erb (111.0ms)
+Completed 200 OK in 352ms (Views: 231.5ms | ActiveRecord: 6.0ms)
+
+
+Started GET "/server_accounts?_=1511487489641&direction=&page=2&search=&sort=&utf8=%E2%9C%93&show_inactive=false&search=" for 127.0.0.1 at 2017-11-24 09:38:20 +0800
+Processing by ServerAccountsController#index as JS
+  Parameters: {"_"=>"1511487489641", "direction"=>"", "page"=>"2", "search"=>"", "sort"=>"", "utf8"=>"✓", "show_inactive"=>"false"}
+  [1m[36mServerAccount Load (1.0ms)[0m  [1m[35mEXEC sp_executesql N'SELECT  [tblServerAccounts].* FROM [tblServerAccounts] WHERE (Active = 1) AND (AccountCode LIKE N''%%'')  ORDER BY AccountCode asc OFFSET @0 ROWS FETCH NEXT @1 ROWS ONLY', N'@0 int, @1 int', @0 = 6, @1 = 6[0m  [["OFFSET", nil], ["LIMIT", nil]]
+  Rendering server_accounts/index.js.erb
+  [1m[35m (1.0ms)[0m  [1m[34mSELECT COUNT(*) FROM [tblServerAccounts] WHERE (Active = 1) AND (AccountCode LIKE N'%%')[0m
+  Rendered server_accounts/_server_accounts.html.erb (10.0ms)
+  Rendered server_accounts/index.js.erb (114.0ms)
+Completed 200 OK in 364ms (Views: 241.0ms | ActiveRecord: 2.0ms)
+
+
+Started POST "/server_accounts/test_connection?id=4027&is_editing=false&data_source=undefined&database=undefined&use_windows_nt=false&username=undefined&password=[FILTERED]&account_code=undefined" for 127.0.0.1 at 2017-11-24 09:38:22 +0800
+Processing by ServerAccountsController#test_connection as JS
+  Parameters: {"id"=>"4027", "is_editing"=>"false", "data_source"=>"undefined", "database"=>"undefined", "use_windows_nt"=>"false", "username"=>"undefined", "password"=>"[FILTERED]", "account_code"=>"undefined"}
+  [1m[36mServerAccount Load (1.0ms)[0m  [1m[34mSELECT [tblServerAccounts].* FROM [tblServerAccounts] WHERE (Id = N'4027')[0m
+  Rendering server_accounts/test_connection.js.erb
+  Rendered server_accounts/test_connection.js.erb (1.0ms)
+Completed 200 OK in 1088ms (Views: 38.5ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/logout" for 127.0.0.1 at 2017-11-24 09:38:32 +0800
+Processing by LogoutController#index as HTML
+Redirected to http://localhost:3000/
+Completed 302 Found in 4ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-11-24 09:38:32 +0800
+Processing by LoginController#index as HTML
+  Rendering login/index.html.erb within layouts/application
+  Rendered login/index.html.erb within layouts/application (1.0ms)
+Completed 200 OK in 249ms (Views: 239.7ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/login/authenticate" for 127.0.0.1 at 2017-11-24 09:38:45 +0800
+Processing by LoginController#authenticate as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"2gJmI5HaZHhY3VF/NvmOYcyI5tNyFZOxSDuiZo5f2ZHwhGXp4CnCh7jbRcna+Ar/H37BzoklRHKCVnJ4dZJ9TQ==", "user_name"=>"mark.rubio", "password"=>"[FILTERED]"}
+  [1m[36mUser Load (0.0ms)[0m  [1m[35mEXEC sp_executesql N'SELECT  [tblSecurityUsers].* FROM [tblSecurityUsers] WHERE [tblSecurityUsers].[LoginName] = @0  ORDER BY [tblSecurityUsers].[Id] ASC OFFSET 0 ROWS FETCH NEXT @1 ROWS ONLY', N'@0 varchar(50), @1 int', @0 = 'mark.rubio', @1 = 1[0m  [["LoginName", nil], ["LIMIT", nil]]
+Redirected to http://localhost:3000/
+Completed 302 Found in 154ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-11-24 09:38:45 +0800
+Processing by LoginController#index as HTML
+  Rendering login/index.html.erb within layouts/application
+  Rendered login/index.html.erb within layouts/application (1.0ms)
+Completed 200 OK in 248ms (Views: 239.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-11-24 09:40:05 +0800
+Processing by LoginController#index as HTML
+  Rendering login/index.html.erb within layouts/application
+  Rendered login/index.html.erb within layouts/application (1.0ms)
+Completed 200 OK in 234ms (Views: 225.2ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/login/authenticate" for 127.0.0.1 at 2017-11-24 09:40:11 +0800
+Processing by LoginController#authenticate as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"iAd4RRTWRwgTsYq5pIyZ72hWv4iNqeItsXbowKiHZSx65Kd5FeHQxNuiTJXCNo/eIImpLDeSCbwsfhYvxSuJdg==", "user_name"=>"clifford", "password"=>"[FILTERED]"}
+  [1m[36mUser Load (2.0ms)[0m  [1m[35mEXEC sp_executesql N'SELECT  [tblSecurityUsers].* FROM [tblSecurityUsers] WHERE [tblSecurityUsers].[LoginName] = @0  ORDER BY [tblSecurityUsers].[Id] ASC OFFSET 0 ROWS FETCH NEXT @1 ROWS ONLY', N'@0 varchar(50), @1 int', @0 = 'clifford', @1 = 1[0m  [["LoginName", nil], ["LIMIT", nil]]
+Redirected to http://localhost:3000/server_accounts
+Completed 302 Found in 123ms (ActiveRecord: 2.0ms)
+
+
+Started GET "/server_accounts" for 127.0.0.1 at 2017-11-24 09:40:11 +0800
+Processing by ServerAccountsController#index as HTML
+  [1m[36mServerAccount Load (2.0ms)[0m  [1m[35mEXEC sp_executesql N'SELECT  [tblServerAccounts].* FROM [tblServerAccounts] WHERE (Active = 1)  ORDER BY AccountCode asc OFFSET @0 ROWS FETCH NEXT @1 ROWS ONLY', N'@0 int, @1 int', @0 = 0, @1 = 6[0m  [["OFFSET", nil], ["LIMIT", nil]]
+  Rendering server_accounts/index.html.erb within layouts/application
+  [1m[35m (1.0ms)[0m  [1m[34mSELECT COUNT(*) FROM [tblServerAccounts] WHERE (Active = 1)[0m
+  Rendered server_accounts/_server_accounts.html.erb (38.0ms)
+  Rendered server_accounts/index.html.erb within layouts/application (57.0ms)
+Completed 200 OK in 513ms (Views: 475.8ms | ActiveRecord: 3.0ms)
+
+
+Started GET "/logout" for 127.0.0.1 at 2017-11-24 09:40:13 +0800
+Processing by LogoutController#index as HTML
+Redirected to http://localhost:3000/
+Completed 302 Found in 15ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-11-24 09:40:13 +0800
+Processing by LoginController#index as HTML
+  Rendering login/index.html.erb within layouts/application
+  Rendered login/index.html.erb within layouts/application (3.0ms)
+Completed 200 OK in 504ms (Views: 487.2ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/login/authenticate" for 127.0.0.1 at 2017-11-24 09:40:19 +0800
+Processing by LoginController#authenticate as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"TT0BUJe+R4EjKm7sI/IEsUDoGF3LDKcB/4rjdCw4VZdFFgGxDKcP/SwL28tkwla7bmjzpmQELLFQY07WNWkZSw==", "user_name"=>"mark.rubio", "password"=>"[FILTERED]"}
+  [1m[36mUser Load (1.0ms)[0m  [1m[35mEXEC sp_executesql N'SELECT  [tblSecurityUsers].* FROM [tblSecurityUsers] WHERE [tblSecurityUsers].[LoginName] = @0  ORDER BY [tblSecurityUsers].[Id] ASC OFFSET 0 ROWS FETCH NEXT @1 ROWS ONLY', N'@0 varchar(50), @1 int', @0 = 'mark.rubio', @1 = 1[0m  [["LoginName", nil], ["LIMIT", nil]]
+Redirected to http://localhost:3000/
+Completed 302 Found in 116ms (ActiveRecord: 1.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-11-24 09:40:19 +0800
+Processing by LoginController#index as HTML
+  Rendering login/index.html.erb within layouts/application
+  Rendered login/index.html.erb within layouts/application (2.0ms)
+Completed 200 OK in 299ms (Views: 285.3ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/login/authenticate" for 127.0.0.1 at 2017-11-24 09:42:31 +0800
+Processing by LoginController#authenticate as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"gS3qqjq1Kd/yqpRLArx3h5MgrQqMItktA9hUX/9TPNo+tBNJZks9HgGUuOIBxf2azUvkHKSrGqGEFxhrC8iwSQ==", "user_name"=>"clifford", "password"=>"[FILTERED]"}
+  [1m[36mUser Load (1.0ms)[0m  [1m[35mEXEC sp_executesql N'SELECT  [tblSecurityUsers].* FROM [tblSecurityUsers] WHERE [tblSecurityUsers].[LoginName] = @0  ORDER BY [tblSecurityUsers].[Id] ASC OFFSET 0 ROWS FETCH NEXT @1 ROWS ONLY', N'@0 varchar(50), @1 int', @0 = 'clifford', @1 = 1[0m  [["LoginName", nil], ["LIMIT", nil]]
+Redirected to http://localhost:3000/server_accounts
+Completed 302 Found in 95ms (ActiveRecord: 1.0ms)
+
+
+Started GET "/server_accounts" for 127.0.0.1 at 2017-11-24 09:42:31 +0800
+Processing by ServerAccountsController#index as HTML
+  [1m[36mServerAccount Load (1.0ms)[0m  [1m[35mEXEC sp_executesql N'SELECT  [tblServerAccounts].* FROM [tblServerAccounts] WHERE (Active = 1)  ORDER BY AccountCode asc OFFSET @0 ROWS FETCH NEXT @1 ROWS ONLY', N'@0 int, @1 int', @0 = 0, @1 = 6[0m  [["OFFSET", nil], ["LIMIT", nil]]
+  Rendering server_accounts/index.html.erb within layouts/application
+  [1m[35m (1.0ms)[0m  [1m[34mSELECT COUNT(*) FROM [tblServerAccounts] WHERE (Active = 1)[0m
+  Rendered server_accounts/_server_accounts.html.erb (4.0ms)
+  Rendered server_accounts/index.html.erb within layouts/application (15.0ms)
+Completed 200 OK in 282ms (Views: 264.7ms | ActiveRecord: 2.0ms)
+
+
+Started GET "/logout" for 127.0.0.1 at 2017-11-24 09:42:33 +0800
+Processing by LogoutController#index as HTML
+Redirected to http://localhost:3000/
+Completed 302 Found in 2ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-11-24 09:42:33 +0800
+Processing by LoginController#index as HTML
+  Rendering login/index.html.erb within layouts/application
+  Rendered login/index.html.erb within layouts/application (2.0ms)
+Completed 200 OK in 344ms (Views: 334.3ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/login/authenticate" for 127.0.0.1 at 2017-11-24 09:43:25 +0800
+Processing by LoginController#authenticate as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"p7D0WbmfkUZtejsDeHXZXphhEVv4IDQHP3HigG/UGK5/TJ/pJJ0imFuyUbGN4XJrpvlmZnwGFzKnJDqaxdq55Q==", "user_name"=>"clifford", "password"=>"[FILTERED]"}
+  [1m[36mUser Load (1.0ms)[0m  [1m[35mEXEC sp_executesql N'SELECT  [tblSecurityUsers].* FROM [tblSecurityUsers] WHERE [tblSecurityUsers].[LoginName] = @0  ORDER BY [tblSecurityUsers].[Id] ASC OFFSET 0 ROWS FETCH NEXT @1 ROWS ONLY', N'@0 varchar(50), @1 int', @0 = 'clifford', @1 = 1[0m  [["LoginName", nil], ["LIMIT", nil]]
+Redirected to http://localhost:3000/server_accounts
+Completed 302 Found in 88ms (ActiveRecord: 1.0ms)
+
+
+Started GET "/server_accounts" for 127.0.0.1 at 2017-11-24 09:43:25 +0800
+Processing by ServerAccountsController#index as HTML
+  [1m[36mServerAccount Load (1.0ms)[0m  [1m[35mEXEC sp_executesql N'SELECT  [tblServerAccounts].* FROM [tblServerAccounts] WHERE (Active = 1)  ORDER BY AccountCode asc OFFSET @0 ROWS FETCH NEXT @1 ROWS ONLY', N'@0 int, @1 int', @0 = 0, @1 = 6[0m  [["OFFSET", nil], ["LIMIT", nil]]
+  Rendering server_accounts/index.html.erb within layouts/application
+  [1m[35m (1.0ms)[0m  [1m[34mSELECT COUNT(*) FROM [tblServerAccounts] WHERE (Active = 1)[0m
+  Rendered server_accounts/_server_accounts.html.erb (5.0ms)
+  Rendered server_accounts/index.html.erb within layouts/application (15.0ms)
+Completed 200 OK in 257ms (Views: 240.8ms | ActiveRecord: 2.0ms)
+
+
+Started GET "/logout" for 127.0.0.1 at 2017-11-24 09:43:27 +0800
+Processing by LogoutController#index as HTML
+Redirected to http://localhost:3000/
+Completed 302 Found in 2ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-11-24 09:43:27 +0800
+Processing by LoginController#index as HTML
+  Rendering login/index.html.erb within layouts/application
+  Rendered login/index.html.erb within layouts/application (4.0ms)
+Completed 200 OK in 472ms (Views: 457.6ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/login/authenticate" for 127.0.0.1 at 2017-11-24 09:43:30 +0800
+Processing by LoginController#authenticate as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"ivWJwDvIn/5TunQEePPyB2iaQR8uP6cCBOEUTgh9tNDAK8bAocSYA2jmYSvusfRCRyvUcTTrefM/eNN45rYuNg==", "user_name"=>"mark.rubio", "password"=>"[FILTERED]"}
+  [1m[36mUser Load (3.0ms)[0m  [1m[35mEXEC sp_executesql N'SELECT  [tblSecurityUsers].* FROM [tblSecurityUsers] WHERE [tblSecurityUsers].[LoginName] = @0  ORDER BY [tblSecurityUsers].[Id] ASC OFFSET 0 ROWS FETCH NEXT @1 ROWS ONLY', N'@0 varchar(50), @1 int', @0 = 'mark.rubio', @1 = 1[0m  [["LoginName", nil], ["LIMIT", nil]]
+Redirected to http://localhost:3000/
+Completed 302 Found in 105ms (ActiveRecord: 3.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-11-24 09:43:30 +0800
+Processing by LoginController#index as HTML
+  Rendering login/index.html.erb within layouts/application
+  Rendered login/index.html.erb within layouts/application (1.0ms)
+Completed 200 OK in 383ms (Views: 369.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-11-24 09:44:08 +0800
+Processing by LoginController#index as HTML
+  Rendering login/index.html.erb within layouts/application
+  Rendered login/index.html.erb within layouts/application (2.0ms)
+Completed 200 OK in 15345ms (Views: 15322.6ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/login/authenticate" for 127.0.0.1 at 2017-11-24 09:48:49 +0800
+Processing by LoginController#authenticate as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"TPZb2mcEvIhum0KtII+lS0N0UesVa4mlTLjwzfmJvW/Vi58NqZwLTKRgWh6PmNmudrf79Jac7yTdqG0joCHt2Q==", "user_name"=>"mark.rubio", "password"=>"[FILTERED]"}
+  [1m[36mUser Load (1.0ms)[0m  [1m[35mEXEC sp_executesql N'SELECT  [tblSecurityUsers].* FROM [tblSecurityUsers] WHERE [tblSecurityUsers].[LoginName] = @0  ORDER BY [tblSecurityUsers].[Id] ASC OFFSET 0 ROWS FETCH NEXT @1 ROWS ONLY', N'@0 varchar(50), @1 int', @0 = 'mark.rubio', @1 = 1[0m  [["LoginName", nil], ["LIMIT", nil]]
+Redirected to http://localhost:3000/
+Completed 302 Found in 175ms (ActiveRecord: 1.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-11-24 09:48:49 +0800
+Processing by LoginController#index as HTML
+  Rendering login/index.html.erb within layouts/application
+  Rendered login/index.html.erb within layouts/application (1.0ms)
+Completed 200 OK in 233ms (Views: 223.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-11-24 09:49:20 +0800
+Processing by LoginController#index as HTML
+  Rendering login/index.html.erb within layouts/application
+  Rendered login/index.html.erb within layouts/application (1.0ms)
+Completed 200 OK in 474ms (Views: 464.7ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/login/authenticate" for 127.0.0.1 at 2017-11-24 09:49:25 +0800
+Processing by LoginController#authenticate as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"eP2h/A0UTg9DCEIM4gP2YfAy/MOpsbB6a1c4IdUSDEjhgGUrw4z5y4nzWr9NFIqExfFW3CpG1vv6R6XPjLpc/g==", "user_name"=>"mark.rubio", "password"=>"[FILTERED]"}
+  [1m[36mUser Load (1.0ms)[0m  [1m[35mEXEC sp_executesql N'SELECT  [tblSecurityUsers].* FROM [tblSecurityUsers] WHERE [tblSecurityUsers].[LoginName] = @0  ORDER BY [tblSecurityUsers].[Id] ASC OFFSET 0 ROWS FETCH NEXT @1 ROWS ONLY', N'@0 varchar(50), @1 int', @0 = 'mark.rubio', @1 = 1[0m  [["LoginName", nil], ["LIMIT", nil]]
+Redirected to http://localhost:3000/
+Completed 302 Found in 104ms (ActiveRecord: 1.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-11-24 09:49:25 +0800
+Processing by LoginController#index as HTML
+  Rendering login/index.html.erb within layouts/application
+  Rendered login/index.html.erb within layouts/application (2.0ms)
+Completed 200 OK in 711ms (Views: 696.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-11-24 09:49:40 +0800
+Processing by LoginController#index as HTML
+  Rendering login/index.html.erb within layouts/application
+  Rendered login/index.html.erb within layouts/application (1.0ms)
+Completed 200 OK in 304ms (Views: 295.5ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/login/authenticate" for 127.0.0.1 at 2017-11-24 09:49:46 +0800
+Processing by LoginController#authenticate as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"I7Gc/DCWJ/0gQ8hvtEjwI1WIMyOOEFFw19z/f0c/lKu6zFgr/g6QOeq40NwbX4zGYEuZPA3nN/FGzGKRHpfEHQ==", "user_name"=>"mark.rubio", "password"=>"[FILTERED]"}
+  [1m[36mUser Load (2.0ms)[0m  [1m[35mEXEC sp_executesql N'SELECT  [tblSecurityUsers].* FROM [tblSecurityUsers] WHERE [tblSecurityUsers].[LoginName] = @0  ORDER BY [tblSecurityUsers].[Id] ASC OFFSET 0 ROWS FETCH NEXT @1 ROWS ONLY', N'@0 varchar(50), @1 int', @0 = 'mark.rubio', @1 = 1[0m  [["LoginName", nil], ["LIMIT", nil]]
+Redirected to http://localhost:3000/
+Completed 302 Found in 191ms (ActiveRecord: 2.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-11-24 09:49:46 +0800
+Processing by LoginController#index as HTML
+  Rendering login/index.html.erb within layouts/application
+  Rendered login/index.html.erb within layouts/application (1.0ms)
+Completed 200 OK in 254ms (Views: 243.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/new" for 127.0.0.1 at 2017-11-24 09:49:57 +0800
+Processing by UsersController#new as HTML
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/new.html.erb within layouts/application (93.0ms)
+Completed 200 OK in 351ms (Views: 342.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/login" for 127.0.0.1 at 2017-11-24 09:49:59 +0800
+Processing by LoginController#index as HTML
+  Rendering login/index.html.erb within layouts/application
+  Rendered login/index.html.erb within layouts/application (2.0ms)
+Completed 200 OK in 599ms (Views: 556.5ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/login/authenticate" for 127.0.0.1 at 2017-11-24 09:50:01 +0800
+Processing by LoginController#authenticate as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"Ui78sOlcQNbhKhYv2sz3GEp2dkWBUlUNCpPgPwi9uIIY8LOwc1BHK9p2AwBMjvFdZcfjK5uGi/wxCicJ5nYiZA==", "user_name"=>"", "password"=>"[FILTERED]"}
+  [1m[36mUser Load (3.0ms)[0m  [1m[35mEXEC sp_executesql N'SELECT  [tblSecurityUsers].* FROM [tblSecurityUsers] WHERE [tblSecurityUsers].[LoginName] = @0  ORDER BY [tblSecurityUsers].[Id] ASC OFFSET 0 ROWS FETCH NEXT @1 ROWS ONLY', N'@0 varchar(50), @1 int', @0 = '', @1 = 1[0m  [["LoginName", nil], ["LIMIT", nil]]
+Redirected to http://localhost:3000/
+Completed 302 Found in 12ms (ActiveRecord: 3.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-11-24 09:50:02 +0800
+Processing by LoginController#index as HTML
+  Rendering login/index.html.erb within layouts/application
+  Rendered login/index.html.erb within layouts/application (2.0ms)
+Completed 200 OK in 437ms (Views: 417.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-11-24 09:53:56 +0800
+Processing by LoginController#index as HTML
+  Rendering login/index.html.erb within layouts/application
+  Rendered login/index.html.erb within layouts/application (2.0ms)
+Completed 200 OK in 2274ms (Views: 2258.8ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/login/authenticate" for 127.0.0.1 at 2017-11-24 09:54:03 +0800
+Processing by LoginController#authenticate as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"TOxUxu+Zyuqff79sRj5tAm7Wgl9bXTEcdSMJofnK3nzVkZARIQF9LlWEp9/pKRHnWxUoQNiqV53kM5RPoGKOyg==", "user_name"=>"clifford", "password"=>"[FILTERED]"}
+  [1m[36mUser Load (1.0ms)[0m  [1m[35mEXEC sp_executesql N'SELECT  [tblSecurityUsers].* FROM [tblSecurityUsers] WHERE [tblSecurityUsers].[LoginName] = @0  ORDER BY [tblSecurityUsers].[Id] ASC OFFSET 0 ROWS FETCH NEXT @1 ROWS ONLY', N'@0 varchar(50), @1 int', @0 = 'clifford', @1 = 1[0m  [["LoginName", nil], ["LIMIT", nil]]
+Redirected to http://localhost:3000/server_accounts
+Completed 302 Found in 262ms (ActiveRecord: 82.0ms)
+
+
+Started GET "/server_accounts" for 127.0.0.1 at 2017-11-24 09:54:04 +0800
+Processing by ServerAccountsController#index as HTML
+  [1m[36mServerAccount Load (3.0ms)[0m  [1m[35mEXEC sp_executesql N'SELECT  [tblServerAccounts].* FROM [tblServerAccounts] WHERE (Active = 1)  ORDER BY AccountCode asc OFFSET @0 ROWS FETCH NEXT @1 ROWS ONLY', N'@0 int, @1 int', @0 = 0, @1 = 6[0m  [["OFFSET", nil], ["LIMIT", nil]]
+  Rendering server_accounts/index.html.erb within layouts/application
+  [1m[35m (2.0ms)[0m  [1m[34mSELECT COUNT(*) FROM [tblServerAccounts] WHERE (Active = 1)[0m
+  Rendered server_accounts/_server_accounts.html.erb (71.0ms)
+  Rendered server_accounts/index.html.erb within layouts/application (91.0ms)
+Completed 200 OK in 800ms (Views: 520.5ms | ActiveRecord: 136.0ms)
+
+
+Started GET "/server_accounts" for 127.0.0.1 at 2017-11-24 09:54:12 +0800
+Processing by ServerAccountsController#index as HTML
+  [1m[36mServerAccount Load (2.0ms)[0m  [1m[35mEXEC sp_executesql N'SELECT  [tblServerAccounts].* FROM [tblServerAccounts] WHERE (Active = 1)  ORDER BY AccountCode asc OFFSET @0 ROWS FETCH NEXT @1 ROWS ONLY', N'@0 int, @1 int', @0 = 0, @1 = 6[0m  [["OFFSET", nil], ["LIMIT", nil]]
+  Rendering server_accounts/index.html.erb within layouts/application
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM [tblServerAccounts] WHERE (Active = 1)[0m
+  Rendered server_accounts/_server_accounts.html.erb (8.0ms)
+  Rendered server_accounts/index.html.erb within layouts/application (22.0ms)
+Completed 200 OK in 284ms (Views: 257.7ms | ActiveRecord: 2.0ms)
+
+
+Started GET "/server_accounts" for 127.0.0.1 at 2017-11-24 09:54:14 +0800
+Processing by ServerAccountsController#index as HTML
+  [1m[36mServerAccount Load (21.0ms)[0m  [1m[35mEXEC sp_executesql N'SELECT  [tblServerAccounts].* FROM [tblServerAccounts] WHERE (Active = 1)  ORDER BY AccountCode asc OFFSET @0 ROWS FETCH NEXT @1 ROWS ONLY', N'@0 int, @1 int', @0 = 0, @1 = 6[0m  [["OFFSET", nil], ["LIMIT", nil]]
+  Rendering server_accounts/index.html.erb within layouts/application
+  [1m[35m (1.0ms)[0m  [1m[34mSELECT COUNT(*) FROM [tblServerAccounts] WHERE (Active = 1)[0m
+  Rendered server_accounts/_server_accounts.html.erb (18.0ms)
+  Rendered server_accounts/index.html.erb within layouts/application (42.0ms)
+Completed 200 OK in 712ms (Views: 589.5ms | ActiveRecord: 22.0ms)
+
+
+Started GET "/server_accounts/4028" for 127.0.0.1 at 2017-11-24 09:54:16 +0800
+Processing by ServerAccountsController#show as HTML
+  Parameters: {"id"=>"4028"}
+  [1m[36mServerAccount Load (4.0ms)[0m  [1m[35mEXEC sp_executesql N'SELECT  [tblServerAccounts].* FROM [tblServerAccounts] WHERE [tblServerAccounts].[Id] = @0  ORDER BY [tblServerAccounts].[Id] ASC OFFSET 0 ROWS FETCH NEXT @1 ROWS ONLY', N'@0 int, @1 int', @0 = 4028, @1 = 1[0m  [["Id", nil], ["LIMIT", nil]]
+  Rendering server_accounts/show.html.erb within layouts/application
+  Rendered server_accounts/show.html.erb within layouts/application (3.0ms)
+Completed 200 OK in 410ms (Views: 373.8ms | ActiveRecord: 4.0ms)
+
+
+Started GET "/server_accounts" for 127.0.0.1 at 2017-11-24 09:54:18 +0800
+Processing by ServerAccountsController#index as HTML
+  [1m[36mServerAccount Load (1.0ms)[0m  [1m[35mEXEC sp_executesql N'SELECT  [tblServerAccounts].* FROM [tblServerAccounts] WHERE (Active = 1)  ORDER BY AccountCode asc OFFSET @0 ROWS FETCH NEXT @1 ROWS ONLY', N'@0 int, @1 int', @0 = 0, @1 = 6[0m  [["OFFSET", nil], ["LIMIT", nil]]
+  Rendering server_accounts/index.html.erb within layouts/application
+  [1m[35m (2.0ms)[0m  [1m[34mSELECT COUNT(*) FROM [tblServerAccounts] WHERE (Active = 1)[0m
+  Rendered server_accounts/_server_accounts.html.erb (12.0ms)
+  Rendered server_accounts/index.html.erb within layouts/application (42.0ms)
+Completed 200 OK in 658ms (Views: 628.3ms | ActiveRecord: 3.0ms)
+
+
+Started GET "/server_accounts/new" for 127.0.0.1 at 2017-11-24 09:55:51 +0800
+Processing by ServerAccountsController#new as HTML
+  Rendering server_accounts/new.html.erb within layouts/application
+  Rendered server_accounts/_form.html.erb (261.0ms)
+  Rendered server_accounts/new.html.erb within layouts/application (289.0ms)
+Completed 200 OK in 588ms (Views: 522.6ms | ActiveRecord: 37.0ms)
+
+
+Started POST "/server_accounts" for 127.0.0.1 at 2017-11-24 09:55:55 +0800
+Processing by ServerAccountsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"+Bp7vPp6biL11qvrdEVm1w5ug+XdJP0oBSLH3lLEqR4CX+/yn7fNrA08jEvYz/Bb2W6XSeMMyxnnXDJQf3WZdQ==", "server_account"=>{"SystemServer"=>"", "SystemDatabase"=>"", "Username"=>"", "Password"=>"[FILTERED]", "Id"=>"", "AccountCode"=>"test", "AccountName"=>"test", "Active"=>"1", "Connection"=>""}, "commit"=>"Save Account"}
+Unpermitted parameters: :SystemServer, :SystemDatabase, :Username, :Password, :Id
+  [1m[35mSQL (80.0ms)[0m  [1m[36mBEGIN TRANSACTION[0m
+  [1m[35mSQL (349.0ms)[0m  [1m[35mEXEC sp_executesql N'INSERT INTO [tblServerAccounts] ([AccountCode], [AccountName], [SystemId], [Connection]) OUTPUT INSERTED.[Id] VALUES (@0, @1, @2, @3)', N'@0 varchar(50), @1 varchar(50), @2 int, @3 varchar(8000)', @0 = 'test', @1 = 'test', @2 = 1, @3 = ''[0m  [["AccountCode", nil], ["AccountName", nil], ["SystemId", nil], ["Connection", nil]]
+  [1m[35mSQL (1.0ms)[0m  [1m[36mCOMMIT TRANSACTION[0m
+  [1m[35mSQL (0.0ms)[0m  [1m[36mBEGIN TRANSACTION[0m
+  [1m[35mSQL (218.0ms)[0m  [1m[35mEXEC sp_executesql N'INSERT INTO [tblSecurityUserServerAccounts] ([SecurityUserId], [ServerAccountId]) OUTPUT INSERTED.[Id] VALUES (@0, @1)', N'@0 int, @1 int', @0 = 1, @1 = 4029[0m  [["SecurityUserId", nil], ["ServerAccountId", nil]]
+  [1m[35mSQL (32.0ms)[0m  [1m[36mCOMMIT TRANSACTION[0m
+Redirected to http://localhost:3000/server_accounts/4029
+Completed 302 Found in 755ms (ActiveRecord: 734.1ms)
+
+
+Started GET "/server_accounts/4029" for 127.0.0.1 at 2017-11-24 09:55:55 +0800
+Processing by ServerAccountsController#show as HTML
+  Parameters: {"id"=>"4029"}
+  [1m[36mServerAccount Load (0.0ms)[0m  [1m[35mEXEC sp_executesql N'SELECT  [tblServerAccounts].* FROM [tblServerAccounts] WHERE [tblServerAccounts].[Id] = @0  ORDER BY [tblServerAccounts].[Id] ASC OFFSET 0 ROWS FETCH NEXT @1 ROWS ONLY', N'@0 int, @1 int', @0 = 4029, @1 = 1[0m  [["Id", nil], ["LIMIT", nil]]
+  Rendering server_accounts/show.html.erb within layouts/application
+  Rendered server_accounts/show.html.erb within layouts/application (2.0ms)
+Completed 200 OK in 235ms (Views: 222.0ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/server_accounts/test_connection?id=4029&is_editing=false&data_source=undefined&database=undefined&use_windows_nt=false&username=undefined&password=[FILTERED]&account_code=undefined" for 127.0.0.1 at 2017-11-24 09:55:57 +0800
+Processing by ServerAccountsController#test_connection as JS
+  Parameters: {"id"=>"4029", "is_editing"=>"false", "data_source"=>"undefined", "database"=>"undefined", "use_windows_nt"=>"false", "username"=>"undefined", "password"=>"[FILTERED]", "account_code"=>"undefined"}
+  [1m[36mServerAccount Load (0.0ms)[0m  [1m[34mSELECT [tblServerAccounts].* FROM [tblServerAccounts] WHERE (Id = N'4029')[0m
+  Rendering server_accounts/test_connection.js.erb
+  Rendered server_accounts/test_connection.js.erb (0.0ms)
+Completed 200 OK in 58ms (Views: 42.2ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/server_accounts/test_connection?id=4029&is_editing=false&data_source=undefined&database=undefined&use_windows_nt=false&username=undefined&password=[FILTERED]&account_code=undefined" for 127.0.0.1 at 2017-11-24 09:56:13 +0800
+Processing by ServerAccountsController#test_connection as JS
+  Parameters: {"id"=>"4029", "is_editing"=>"false", "data_source"=>"undefined", "database"=>"undefined", "use_windows_nt"=>"false", "username"=>"undefined", "password"=>"[FILTERED]", "account_code"=>"undefined"}
+  [1m[36mServerAccount Load (1.0ms)[0m  [1m[34mSELECT [tblServerAccounts].* FROM [tblServerAccounts] WHERE (Id = N'4029')[0m
+  Rendering server_accounts/test_connection.js.erb
+  Rendered server_accounts/test_connection.js.erb (1.0ms)
+Completed 200 OK in 160ms (Views: 55.3ms | ActiveRecord: 63.0ms)
+
+
+Started GET "/server_accounts" for 127.0.0.1 at 2017-11-24 09:59:32 +0800
+Processing by ServerAccountsController#index as HTML
+  [1m[36mServerAccount Load (1.0ms)[0m  [1m[35mEXEC sp_executesql N'SELECT  [tblServerAccounts].* FROM [tblServerAccounts] WHERE (Active = 1)  ORDER BY AccountCode asc OFFSET @0 ROWS FETCH NEXT @1 ROWS ONLY', N'@0 int, @1 int', @0 = 0, @1 = 6[0m  [["OFFSET", nil], ["LIMIT", nil]]
+  Rendering server_accounts/index.html.erb within layouts/application
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM [tblServerAccounts] WHERE (Active = 1)[0m
+  Rendered server_accounts/_server_accounts.html.erb (5.0ms)
+  Rendered server_accounts/index.html.erb within layouts/application (17.0ms)
+Completed 200 OK in 316ms (Views: 248.8ms | ActiveRecord: 34.0ms)
+
+
+Started GET "/server_accounts" for 127.0.0.1 at 2017-11-24 09:59:45 +0800
+Processing by ServerAccountsController#index as HTML
+  [1m[36mServerAccount Load (1.0ms)[0m  [1m[35mEXEC sp_executesql N'SELECT  [tblServerAccounts].* FROM [tblServerAccounts] WHERE (Active = 1)  ORDER BY AccountCode asc OFFSET @0 ROWS FETCH NEXT @1 ROWS ONLY', N'@0 int, @1 int', @0 = 0, @1 = 6[0m  [["OFFSET", nil], ["LIMIT", nil]]
+  Rendering server_accounts/index.html.erb within layouts/application
+  [1m[35m (1.0ms)[0m  [1m[34mSELECT COUNT(*) FROM [tblServerAccounts] WHERE (Active = 1)[0m
+  Rendered server_accounts/_server_accounts.html.erb (8.0ms)
+  Rendered server_accounts/index.html.erb within layouts/application (27.0ms)
+Completed 200 OK in 486ms (Views: 427.8ms | ActiveRecord: 2.0ms)
+
+
+Started GET "/server_accounts" for 127.0.0.1 at 2017-11-24 09:59:51 +0800
+Processing by ServerAccountsController#index as HTML
+  [1m[36mServerAccount Load (1.0ms)[0m  [1m[35mEXEC sp_executesql N'SELECT  [tblServerAccounts].* FROM [tblServerAccounts] WHERE (Active = 1)  ORDER BY AccountCode asc OFFSET @0 ROWS FETCH NEXT @1 ROWS ONLY', N'@0 int, @1 int', @0 = 0, @1 = 6[0m  [["OFFSET", nil], ["LIMIT", nil]]
+  Rendering server_accounts/index.html.erb within layouts/application
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM [tblServerAccounts] WHERE (Active = 1)[0m
+  Rendered server_accounts/_server_accounts.html.erb (5.0ms)
+  Rendered server_accounts/index.html.erb within layouts/application (18.0ms)
+Completed 200 OK in 263ms (Views: 247.9ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/server_accounts" for 127.0.0.1 at 2017-11-24 10:00:16 +0800
+Processing by ServerAccountsController#index as HTML
+  [1m[36mServerAccount Load (2.0ms)[0m  [1m[35mEXEC sp_executesql N'SELECT  [tblServerAccounts].* FROM [tblServerAccounts] WHERE (Active = 1)  ORDER BY AccountCode asc OFFSET @0 ROWS FETCH NEXT @1 ROWS ONLY', N'@0 int, @1 int', @0 = 0, @1 = 6[0m  [["OFFSET", nil], ["LIMIT", nil]]
+  Rendering server_accounts/index.html.erb within layouts/application
+  [1m[35m (5.0ms)[0m  [1m[34mSELECT COUNT(*) FROM [tblServerAccounts] WHERE (Active = 1)[0m
+  Rendered server_accounts/_server_accounts.html.erb (12.0ms)
+  Rendered server_accounts/index.html.erb within layouts/application (46.0ms)
+Completed 200 OK in 467ms (Views: 434.8ms | ActiveRecord: 7.0ms)
+
+
+Started GET "/server_accounts" for 127.0.0.1 at 2017-11-24 10:01:37 +0800
+Processing by ServerAccountsController#index as HTML
+  [1m[36mServerAccount Load (1.0ms)[0m  [1m[35mEXEC sp_executesql N'SELECT  [tblServerAccounts].* FROM [tblServerAccounts] WHERE (Active = 1)  ORDER BY AccountCode asc OFFSET @0 ROWS FETCH NEXT @1 ROWS ONLY', N'@0 int, @1 int', @0 = 0, @1 = 6[0m  [["OFFSET", nil], ["LIMIT", nil]]
+  Rendering server_accounts/index.html.erb within layouts/application
+  [1m[35m (1.0ms)[0m  [1m[34mSELECT COUNT(*) FROM [tblServerAccounts] WHERE (Active = 1)[0m
+  Rendered server_accounts/_server_accounts.html.erb (5.0ms)
+  Rendered server_accounts/index.html.erb within layouts/application (18.0ms)
+Completed 200 OK in 540ms (Views: 524.3ms | ActiveRecord: 2.0ms)
+
+
+Started GET "/server_accounts?utf8=%E2%9C%93&search=test&direction=&sort=&show_inactive=false&commit=Search" for 127.0.0.1 at 2017-11-24 10:03:44 +0800
+Processing by ServerAccountsController#index as JS
+  Parameters: {"utf8"=>"✓", "search"=>"test", "direction"=>"", "sort"=>"", "show_inactive"=>"false", "commit"=>"Search"}
+  [1m[36mServerAccount Load (47.0ms)[0m  [1m[35mEXEC sp_executesql N'SELECT  [tblServerAccounts].* FROM [tblServerAccounts] WHERE (Active = 1) AND (AccountCode LIKE N''%test%'')  ORDER BY AccountCode asc OFFSET @0 ROWS FETCH NEXT @1 ROWS ONLY', N'@0 int, @1 int', @0 = 0, @1 = 6[0m  [["OFFSET", nil], ["LIMIT", nil]]
+  Rendering server_accounts/index.js.erb
+  Rendered server_accounts/_server_accounts.html.erb (2.0ms)
+  Rendered server_accounts/index.js.erb (100.0ms)
+Completed 200 OK in 369ms (Views: 218.9ms | ActiveRecord: 47.0ms)
+
+
+Started GET "/server_accounts?utf8=%E2%9C%93&direction=&sort=&show_inactive=true&search=test&_=1511488899325" for 127.0.0.1 at 2017-11-24 10:03:46 +0800
+Processing by ServerAccountsController#index as JS
+  Parameters: {"utf8"=>"✓", "direction"=>"", "sort"=>"", "show_inactive"=>"true", "search"=>"test", "_"=>"1511488899325"}
+  [1m[36mServerAccount Load (3.0ms)[0m  [1m[35mEXEC sp_executesql N'SELECT  [tblServerAccounts].* FROM [tblServerAccounts] WHERE (AccountCode LIKE N''%test%'')  ORDER BY AccountCode asc OFFSET @0 ROWS FETCH NEXT @1 ROWS ONLY', N'@0 int, @1 int', @0 = 0, @1 = 6[0m  [["OFFSET", nil], ["LIMIT", nil]]
+  Rendering server_accounts/index.js.erb
+  Rendered server_accounts/_server_accounts.html.erb (2.0ms)
+  Rendered server_accounts/index.js.erb (99.0ms)
+Completed 200 OK in 321ms (Views: 217.0ms | ActiveRecord: 3.0ms)
+
+
+Started GET "/server_accounts?utf8=%E2%9C%93&direction=&sort=&search=test&search=test&_=1511488899326" for 127.0.0.1 at 2017-11-24 10:03:48 +0800
+Processing by ServerAccountsController#index as JS
+  Parameters: {"utf8"=>"✓", "direction"=>"", "sort"=>"", "search"=>"test", "_"=>"1511488899326"}
+  [1m[36mServerAccount Load (1.0ms)[0m  [1m[35mEXEC sp_executesql N'SELECT  [tblServerAccounts].* FROM [tblServerAccounts] WHERE (Active = 1) AND (AccountCode LIKE N''%test%'')  ORDER BY AccountCode asc OFFSET @0 ROWS FETCH NEXT @1 ROWS ONLY', N'@0 int, @1 int', @0 = 0, @1 = 6[0m  [["OFFSET", nil], ["LIMIT", nil]]
+  Rendering server_accounts/index.js.erb
+  Rendered server_accounts/_server_accounts.html.erb (2.0ms)
+  Rendered server_accounts/index.js.erb (100.0ms)
+Completed 200 OK in 335ms (Views: 229.9ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/server_accounts?utf8=%E2%9C%93&search=a&direction=&sort=&show_inactive=false&direction=&sort=&show_inactive=false&direction=&sort=&show_inactive=false&commit=Search" for 127.0.0.1 at 2017-11-24 10:03:50 +0800
+Processing by ServerAccountsController#index as JS
+  Parameters: {"utf8"=>"✓", "search"=>"a", "direction"=>"", "sort"=>"", "show_inactive"=>"false", "commit"=>"Search"}
+  [1m[36mServerAccount Load (4.0ms)[0m  [1m[35mEXEC sp_executesql N'SELECT  [tblServerAccounts].* FROM [tblServerAccounts] WHERE (Active = 1) AND (AccountCode LIKE N''%a%'')  ORDER BY AccountCode asc OFFSET @0 ROWS FETCH NEXT @1 ROWS ONLY', N'@0 int, @1 int', @0 = 0, @1 = 6[0m  [["OFFSET", nil], ["LIMIT", nil]]
+  Rendering server_accounts/index.js.erb
+  [1m[35m (2.0ms)[0m  [1m[34mSELECT COUNT(*) FROM [tblServerAccounts] WHERE (Active = 1) AND (AccountCode LIKE N'%a%')[0m
+  Rendered server_accounts/_server_accounts.html.erb (6.0ms)
+  Rendered server_accounts/index.js.erb (101.0ms)
+Completed 200 OK in 331ms (Views: 218.8ms | ActiveRecord: 6.0ms)
+
+
+Started GET "/server_accounts?utf8=%E2%9C%93&direction=&sort=&show_inactive=true&search=test&search=test&search=a&_=1511488899327" for 127.0.0.1 at 2017-11-24 10:03:51 +0800
+Processing by ServerAccountsController#index as JS
+  Parameters: {"utf8"=>"✓", "direction"=>"", "sort"=>"", "show_inactive"=>"true", "search"=>"a", "_"=>"1511488899327"}
+  [1m[36mServerAccount Load (3.0ms)[0m  [1m[35mEXEC sp_executesql N'SELECT  [tblServerAccounts].* FROM [tblServerAccounts] WHERE (AccountCode LIKE N''%a%'')  ORDER BY AccountCode asc OFFSET @0 ROWS FETCH NEXT @1 ROWS ONLY', N'@0 int, @1 int', @0 = 0, @1 = 6[0m  [["OFFSET", nil], ["LIMIT", nil]]
+  Rendering server_accounts/index.js.erb
+  [1m[35m (2.0ms)[0m  [1m[34mSELECT COUNT(*) FROM [tblServerAccounts] WHERE (AccountCode LIKE N'%a%')[0m
+  Rendered server_accounts/_server_accounts.html.erb (7.0ms)
+  Rendered server_accounts/index.js.erb (108.0ms)
+Completed 200 OK in 338ms (Views: 228.3ms | ActiveRecord: 5.0ms)
+
+
+Started GET "/server_accounts?utf8=%E2%9C%93&direction=&sort=&search=test&search=test&search=a&search=a&_=1511488899328" for 127.0.0.1 at 2017-11-24 10:03:52 +0800
+Processing by ServerAccountsController#index as JS
+  Parameters: {"utf8"=>"✓", "direction"=>"", "sort"=>"", "search"=>"a", "_"=>"1511488899328"}
+  [1m[36mServerAccount Load (0.0ms)[0m  [1m[35mEXEC sp_executesql N'SELECT  [tblServerAccounts].* FROM [tblServerAccounts] WHERE (Active = 1) AND (AccountCode LIKE N''%a%'')  ORDER BY AccountCode asc OFFSET @0 ROWS FETCH NEXT @1 ROWS ONLY', N'@0 int, @1 int', @0 = 0, @1 = 6[0m  [["OFFSET", nil], ["LIMIT", nil]]
+  Rendering server_accounts/index.js.erb
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM [tblServerAccounts] WHERE (Active = 1) AND (AccountCode LIKE N'%a%')[0m
+  Rendered server_accounts/_server_accounts.html.erb (4.0ms)
+  Rendered server_accounts/index.js.erb (104.0ms)
+Completed 200 OK in 332ms (Views: 225.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/logout" for 127.0.0.1 at 2017-11-24 10:03:56 +0800
+Processing by LogoutController#index as HTML
+Redirected to http://localhost:3000/
+Completed 302 Found in 1ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-11-24 10:03:56 +0800
+Processing by LoginController#index as HTML
+  Rendering login/index.html.erb within layouts/application
+  Rendered login/index.html.erb within layouts/application (2.0ms)
+Completed 200 OK in 227ms (Views: 217.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2018-03-27 13:58:28 +0800
+  [1m[35mSQL (1.0ms)[0m  [1m[35mUSE [PPH_JAPPL][0m
+  [1m[35m (17.0ms)[0m  [1m[34mSELECT [schema_migrations].[version] FROM [schema_migrations]  ORDER BY [schema_migrations].[version] ASC[0m
+Processing by LoginController#index as HTML
+  Rendering login/index.html.erb within layouts/application
+  Rendered login/index.html.erb within layouts/application (32.0ms)
+Completed 200 OK in 21305ms (Views: 21240.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2018-03-27 14:00:01 +0800
+  [1m[35mSQL (1.0ms)[0m  [1m[35mUSE [PPH_JAPPL][0m
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT [schema_migrations].[version] FROM [schema_migrations]  ORDER BY [schema_migrations].[version] ASC[0m
+Processing by LoginController#index as HTML
+  Rendering login/index.html.erb within layouts/application
+  Rendered login/index.html.erb within layouts/application (4.0ms)
+Completed 200 OK in 1401ms (Views: 1376.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2018-03-27 14:00:20 +0800
+Processing by LoginController#index as HTML
+  Rendering login/index.html.erb within layouts/application
+  Rendered login/index.html.erb within layouts/application (3.0ms)
+Completed 200 OK in 1855ms (Views: 1720.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2018-03-27 14:00:53 +0800
+Processing by LoginController#index as HTML
+  Rendering login/index.html.erb within layouts/application
+  Rendered login/index.html.erb within layouts/application (1.0ms)
+Completed 200 OK in 395ms (Views: 381.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2018-03-27 14:01:01 +0800
+Processing by LoginController#index as HTML
+  Rendering login/index.html.erb within layouts/application
+  Rendered login/index.html.erb within layouts/application (3.0ms)
+Completed 200 OK in 1140ms (Views: 1102.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2018-03-27 14:01:10 +0800
+Processing by LoginController#index as HTML
+  Rendering login/index.html.erb within layouts/application
+  Rendered login/index.html.erb within layouts/application (4.0ms)
+Completed 200 OK in 940ms (Views: 899.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2018-03-27 14:01:15 +0800
+Processing by LoginController#index as HTML
+  Rendering login/index.html.erb within layouts/application
+  Rendered login/index.html.erb within layouts/application (4.0ms)
+Completed 200 OK in 1039ms (Views: 1004.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2018-03-27 14:04:45 +0800
+Processing by LoginController#index as HTML
+  Rendering login/index.html.erb within layouts/application
+  Rendered login/index.html.erb within layouts/application (5.0ms)
+Completed 200 OK in 763ms (Views: 718.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2018-03-27 14:06:59 +0800
+  [1m[35mSQL (1.0ms)[0m  [1m[35mUSE [PPH_JAPPL][0m
+  [1m[35m (9.0ms)[0m  [1m[34mSELECT [schema_migrations].[version] FROM [schema_migrations]  ORDER BY [schema_migrations].[version] ASC[0m
+Processing by LoginController#index as HTML
+  Rendering login/index.html.erb within layouts/application
+  Rendered login/index.html.erb within layouts/application (18.0ms)
+Completed 200 OK in 2638ms (Views: 2560.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2018-03-27 14:08:29 +0800
+Processing by LoginController#index as HTML
+  Rendering login/index.html.erb within layouts/application
+  Rendered login/index.html.erb within layouts/application (3.0ms)
+Completed 200 OK in 753ms (Views: 725.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/app" for ::1 at 2018-03-27 14:08:40 +0800
+  
+ActionController::RoutingError (No route matches [GET] "/app"):
+  
+actionpack (5.1.4) lib/action_dispatch/middleware/debug_exceptions.rb:63:in `call'
+web-console (3.5.1) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.5.1) lib/web_console/middleware.rb:28:in `block in call'
+web-console (3.5.1) lib/web_console/middleware.rb:18:in `catch'
+web-console (3.5.1) lib/web_console/middleware.rb:18:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.1.4) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.1.4) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.1.4) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.1.4) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.1.4) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.1.4) lib/rails/rack/logger.rb:24:in `call'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/remote_ip.rb:79:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/request_id.rb:25:in `call'
+rack (2.0.3) lib/rack/method_override.rb:22:in `call'
+rack (2.0.3) lib/rack/runtime.rb:22:in `call'
+activesupport (5.1.4) lib/active_support/cache/strategy/local_cache_middleware.rb:27:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/static.rb:125:in `call'
+rack (2.0.3) lib/rack/sendfile.rb:111:in `call'
+railties (5.1.4) lib/rails/engine.rb:522:in `call'
+puma (3.11.0) lib/puma/configuration.rb:225:in `call'
+puma (3.11.0) lib/puma/server.rb:624:in `handle_request'
+puma (3.11.0) lib/puma/server.rb:438:in `process_client'
+puma (3.11.0) lib/puma/server.rb:302:in `block in run'
+puma (3.11.0) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+Started GET "/login" for ::1 at 2018-03-27 14:09:15 +0800
+Processing by LoginController#index as HTML
+  Rendering login/index.html.erb within layouts/application
+  Rendered login/index.html.erb within layouts/application (4.0ms)
+Completed 200 OK in 1094ms (Views: 1033.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/login" for 127.0.0.1 at 2018-03-27 14:23:30 +0800
+Processing by LoginController#index as HTML
+  Rendering login/index.html.erb within layouts/application
+  Rendered login/index.html.erb within layouts/application (4.0ms)
+Completed 200 OK in 875ms (Views: 842.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/login" for 10.0.2.71 at 2018-03-27 14:26:48 +0800
+Cannot render console from 10.0.2.71! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+  [1m[35mSQL (2.0ms)[0m  [1m[35mUSE [PPH_JAPPL][0m
+  [1m[35m (1.0ms)[0m  [1m[34mSELECT [schema_migrations].[version] FROM [schema_migrations]  ORDER BY [schema_migrations].[version] ASC[0m
+Processing by LoginController#index as HTML
+  Rendering login/index.html.erb within layouts/application
+  Rendered login/index.html.erb within layouts/application (30.0ms)
+Completed 200 OK in 2520ms (Views: 2450.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 10.0.5.30 at 2018-03-27 14:35:24 +0800
+Cannot render console from 10.0.5.30! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by LoginController#index as HTML
+  Rendering login/index.html.erb within layouts/application
+  Rendered login/index.html.erb within layouts/application (5.0ms)
+Completed 200 OK in 807ms (Views: 775.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 10.0.5.30 at 2018-03-27 14:35:33 +0800
+Cannot render console from 10.0.5.30! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by LoginController#index as HTML
+  Rendering login/index.html.erb within layouts/application
+  Rendered login/index.html.erb within layouts/application (3.0ms)
+Completed 200 OK in 694ms (Views: 663.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 10.0.5.30 at 2018-03-27 14:35:39 +0800
+Cannot render console from 10.0.5.30! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by LoginController#index as HTML
+  Rendering login/index.html.erb within layouts/application
+  Rendered login/index.html.erb within layouts/application (3.0ms)
+Completed 200 OK in 788ms (Views: 758.2ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/login/authenticate" for 10.0.2.71 at 2018-03-27 14:36:05 +0800
+Cannot render console from 10.0.2.71! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by LoginController#authenticate as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"6yIAz2nSIu16q1un/7tUvtIvBvtwMb2PttE3NVYV6juTCzUjo/Mn/V+idfC1fVuE5LrOuuIdVquM+vY0T+4CWQ==", "user_name"=>"admin", "password"=>"[FILTERED]"}
+  [1m[36mUser Load (10.0ms)[0m  [1m[35mEXEC sp_executesql N'SELECT  [tblSecurityUsers].* FROM [tblSecurityUsers] WHERE [tblSecurityUsers].[LoginName] = @0  ORDER BY [tblSecurityUsers].[Id] ASC OFFSET 0 ROWS FETCH NEXT @1 ROWS ONLY', N'@0 varchar(50), @1 int', @0 = 'admin', @1 = 1[0m  [["LoginName", nil], ["LIMIT", nil]]
+Redirected to http://10.0.2.71:1000/
+Completed 302 Found in 5739ms (ActiveRecord: 533.1ms)
+
+
+Started GET "/" for 10.0.2.71 at 2018-03-27 14:36:11 +0800
+Cannot render console from 10.0.2.71! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by LoginController#index as HTML
+  Rendering login/index.html.erb within layouts/application
+  Rendered login/index.html.erb within layouts/application (4.0ms)
+Completed 200 OK in 874ms (Views: 840.6ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/login/authenticate" for 10.0.2.71 at 2018-03-27 14:37:13 +0800
+Cannot render console from 10.0.2.71! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by LoginController#authenticate as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"M1vUVWazoVhC469w4TzBtBhi/5ybb3ORS4korXbphVFLcuG5rJKkSGfqgSer+s6OLvc33QlDmLVxoumsbxJtMw==", "user_name"=>"admin", "password"=>"[FILTERED]"}
+  [1m[36mUser Load (2.0ms)[0m  [1m[35mEXEC sp_executesql N'SELECT  [tblSecurityUsers].* FROM [tblSecurityUsers] WHERE [tblSecurityUsers].[LoginName] = @0  ORDER BY [tblSecurityUsers].[Id] ASC OFFSET 0 ROWS FETCH NEXT @1 ROWS ONLY', N'@0 varchar(50), @1 int', @0 = 'admin', @1 = 1[0m  [["LoginName", nil], ["LIMIT", nil]]
+Redirected to http://10.0.2.71:1000/
+Completed 302 Found in 5017ms (ActiveRecord: 2.0ms)
+
+
+Started GET "/" for 10.0.2.71 at 2018-03-27 14:37:18 +0800
+Cannot render console from 10.0.2.71! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by LoginController#index as HTML
+  Rendering login/index.html.erb within layouts/application
+  Rendered login/index.html.erb within layouts/application (3.0ms)
+Completed 200 OK in 884ms (Views: 850.9ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/login/authenticate" for 10.0.2.71 at 2018-03-27 14:38:22 +0800
+Cannot render console from 10.0.2.71! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by LoginController#authenticate as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"5OTicADB+a04ylwsaHGbNhG+v/IYfKDdLDY4goQlbEaczdecyuD8vR3Dcnsit5QMJyt3s4pQS/kWHfmDnd6EJA==", "user_name"=>"jeonsoft", "password"=>"[FILTERED]"}
+  [1m[36mUser Load (2.0ms)[0m  [1m[35mEXEC sp_executesql N'SELECT  [tblSecurityUsers].* FROM [tblSecurityUsers] WHERE [tblSecurityUsers].[LoginName] = @0  ORDER BY [tblSecurityUsers].[Id] ASC OFFSET 0 ROWS FETCH NEXT @1 ROWS ONLY', N'@0 varchar(50), @1 int', @0 = 'jeonsoft', @1 = 1[0m  [["LoginName", nil], ["LIMIT", nil]]
+Redirected to http://10.0.2.71:1000/
+Completed 302 Found in 5015ms (ActiveRecord: 2.0ms)
+
+
+Started GET "/" for 10.0.2.71 at 2018-03-27 14:38:27 +0800
+Cannot render console from 10.0.2.71! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by LoginController#index as HTML
+  Rendering login/index.html.erb within layouts/application
+  Rendered login/index.html.erb within layouts/application (3.0ms)
+Completed 200 OK in 701ms (Views: 668.4ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/login/authenticate" for 10.0.2.71 at 2018-03-27 14:39:13 +0800
+Cannot render console from 10.0.2.71! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by LoginController#authenticate as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"zz/p1fBEK/mKEdjYc3Fvmfj0QM3c0QH8aFzJNM2PyHy3Ftw5OmUu6a8Y9o85t2CjzmGIjE796thSdwg11HQgHg==", "user_name"=>"jeonsoft", "password"=>"[FILTERED]"}
+  [1m[36mUser Load (1.0ms)[0m  [1m[35mEXEC sp_executesql N'SELECT  [tblSecurityUsers].* FROM [tblSecurityUsers] WHERE [tblSecurityUsers].[LoginName] = @0  ORDER BY [tblSecurityUsers].[Id] ASC OFFSET 0 ROWS FETCH NEXT @1 ROWS ONLY', N'@0 varchar(50), @1 int', @0 = 'jeonsoft', @1 = 1[0m  [["LoginName", nil], ["LIMIT", nil]]
+Redirected to http://10.0.2.71:1000/
+Completed 302 Found in 5013ms (ActiveRecord: 1.0ms)
+
+
+Started GET "/" for 10.0.2.71 at 2018-03-27 14:39:18 +0800
+Cannot render console from 10.0.2.71! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by LoginController#index as HTML
+  Rendering login/index.html.erb within layouts/application
+  Rendered login/index.html.erb within layouts/application (3.0ms)
+Completed 200 OK in 723ms (Views: 689.7ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/login/authenticate" for 10.0.2.71 at 2018-03-27 14:39:41 +0800
+Cannot render console from 10.0.2.71! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by LoginController#authenticate as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"d4Y5ceguBKVuFHNJs8QOlzjFzverrEjI06zmTdvx1mUPrwydIg8BtUsdXR75AgGtDlAGtjmAo+zphydMwgo+Bw==", "user_name"=>"clifford", "password"=>"[FILTERED]"}
+  [1m[36mUser Load (2.0ms)[0m  [1m[35mEXEC sp_executesql N'SELECT  [tblSecurityUsers].* FROM [tblSecurityUsers] WHERE [tblSecurityUsers].[LoginName] = @0  ORDER BY [tblSecurityUsers].[Id] ASC OFFSET 0 ROWS FETCH NEXT @1 ROWS ONLY', N'@0 varchar(50), @1 int', @0 = 'clifford', @1 = 1[0m  [["LoginName", nil], ["LIMIT", nil]]
+Redirected to http://10.0.2.71:1000/
+Completed 302 Found in 5018ms (ActiveRecord: 2.0ms)
+
+
+Started GET "/" for 10.0.2.71 at 2018-03-27 14:39:46 +0800
+Cannot render console from 10.0.2.71! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by LoginController#index as HTML
+  Rendering login/index.html.erb within layouts/application
+  Rendered login/index.html.erb within layouts/application (4.0ms)
+Completed 200 OK in 755ms (Views: 721.6ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/login/authenticate" for 10.0.2.71 at 2018-03-27 15:00:03 +0800
+Cannot render console from 10.0.2.71! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by LoginController#authenticate as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"e1HOA5DA6poXDUQ2n0BvMPoQT+iLc2YXpn9ZU6V23fcDePvvWuHvijIEamHVhmAKzIWHqRlfjTOcVJhSvI01lQ==", "user_name"=>"clifford", "password"=>"[FILTERED]"}
+  [1m[36mUser Load (2.0ms)[0m  [1m[35mEXEC sp_executesql N'SELECT  [tblSecurityUsers].* FROM [tblSecurityUsers] WHERE [tblSecurityUsers].[LoginName] = @0  ORDER BY [tblSecurityUsers].[Id] ASC OFFSET 0 ROWS FETCH NEXT @1 ROWS ONLY', N'@0 varchar(50), @1 int', @0 = 'clifford', @1 = 1[0m  [["LoginName", nil], ["LIMIT", nil]]
+Redirected to http://10.0.2.71:1000/
+Completed 302 Found in 5018ms (ActiveRecord: 2.0ms)
+
+
+Started GET "/" for 10.0.2.71 at 2018-03-27 15:00:08 +0800
+Cannot render console from 10.0.2.71! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by LoginController#index as HTML
+  Rendering login/index.html.erb within layouts/application
+  Rendered login/index.html.erb within layouts/application (4.0ms)
+Completed 200 OK in 941ms (Views: 904.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 10.0.2.71 at 2018-03-27 15:09:52 +0800
+Cannot render console from 10.0.2.71! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by LoginController#index as HTML
+  Rendering login/index.html.erb within layouts/application
+  Rendered login/index.html.erb within layouts/application (3.0ms)
+Completed 200 OK in 808ms (Views: 781.7ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/login/authenticate" for 10.0.2.71 at 2018-03-27 15:10:10 +0800
+Cannot render console from 10.0.2.71! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by LoginController#authenticate as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"508xBjJ4pFmo9Ej8Fjt9sHXD4Qzx3795vgf4IkXBUOWfZgTq+FmhSY39Zqtc/XKKQ1YpTWPzVF2ELDkjXDq4hw==", "user_name"=>"clifford", "password"=>"[FILTERED]"}
+  [1m[36mUser Load (2.0ms)[0m  [1m[35mEXEC sp_executesql N'SELECT  [tblSecurityUsers].* FROM [tblSecurityUsers] WHERE [tblSecurityUsers].[LoginName] = @0  ORDER BY [tblSecurityUsers].[Id] ASC OFFSET 0 ROWS FETCH NEXT @1 ROWS ONLY', N'@0 varchar(50), @1 int', @0 = 'clifford', @1 = 1[0m  [["LoginName", nil], ["LIMIT", nil]]
+Redirected to http://10.0.2.71:1000/
+Completed 302 Found in 5022ms (ActiveRecord: 2.0ms)
+
+
+Started GET "/" for 10.0.2.71 at 2018-03-27 15:10:16 +0800
+Cannot render console from 10.0.2.71! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by LoginController#index as HTML
+  Rendering login/index.html.erb within layouts/application
+  Rendered login/index.html.erb within layouts/application (4.0ms)
+Completed 200 OK in 777ms (Views: 746.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 10.0.2.71 at 2018-03-27 15:35:10 +0800
+Cannot render console from 10.0.2.71! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by LoginController#index as HTML
+  Rendering login/index.html.erb within layouts/application
+  Rendered login/index.html.erb within layouts/application (3.0ms)
+Completed 200 OK in 887ms (Views: 853.6ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/login/authenticate" for 10.0.2.71 at 2018-03-27 15:35:21 +0800
+Cannot render console from 10.0.2.71! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by LoginController#authenticate as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"CUAXyzaifdjR+dqaTlyUzcF6QeOHV1hZqv08Rtg/eG1xaSIn/IN4yPTw9M0Empv39++JohV7s32Q1v1HwcSQDw==", "user_name"=>"clifford", "password"=>"[FILTERED]"}
+  [1m[36mUser Load (1.0ms)[0m  [1m[35mEXEC sp_executesql N'SELECT  [tblSecurityUsers].* FROM [tblSecurityUsers] WHERE [tblSecurityUsers].[LoginName] = @0  ORDER BY [tblSecurityUsers].[Id] ASC OFFSET 0 ROWS FETCH NEXT @1 ROWS ONLY', N'@0 varchar(50), @1 int', @0 = 'clifford', @1 = 1[0m  [["LoginName", nil], ["LIMIT", nil]]
+Redirected to http://10.0.2.71:1000/
+Completed 302 Found in 5247ms (ActiveRecord: 136.0ms)
+
+
+Started GET "/" for 10.0.2.71 at 2018-03-27 15:35:27 +0800
+Cannot render console from 10.0.2.71! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by LoginController#index as HTML
+  Rendering login/index.html.erb within layouts/application
+  Rendered login/index.html.erb within layouts/application (4.0ms)
+Completed 200 OK in 993ms (Views: 958.2ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/login/authenticate" for 10.0.2.71 at 2018-03-27 15:36:43 +0800
+Cannot render console from 10.0.2.71! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by LoginController#authenticate as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"iVK1oYkA/7mgi1ZUeCTs2XTWEXtw2x4tzNcLCJ/grFnxe4BNQyH6qYWCeAMy4uPjQkPZOuL39Qn2/MoJhhtEOw==", "user_name"=>"trwsdgfds", "password"=>"[FILTERED]"}
+  [1m[36mUser Load (2.0ms)[0m  [1m[35mEXEC sp_executesql N'SELECT  [tblSecurityUsers].* FROM [tblSecurityUsers] WHERE [tblSecurityUsers].[LoginName] = @0  ORDER BY [tblSecurityUsers].[Id] ASC OFFSET 0 ROWS FETCH NEXT @1 ROWS ONLY', N'@0 varchar(50), @1 int', @0 = 'trwsdgfds', @1 = 1[0m  [["LoginName", nil], ["LIMIT", nil]]
+Redirected to http://10.0.2.71:1000/
+Completed 302 Found in 170ms (ActiveRecord: 131.0ms)
+
+
+Started GET "/" for 10.0.2.71 at 2018-03-27 15:36:44 +0800
+Cannot render console from 10.0.2.71! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by LoginController#index as HTML
+  Rendering login/index.html.erb within layouts/application
+  Rendered login/index.html.erb within layouts/application (3.0ms)
+Completed 200 OK in 711ms (Views: 683.5ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/login/authenticate" for 10.0.2.71 at 2018-03-27 15:40:11 +0800
+Cannot render console from 10.0.2.71! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by LoginController#authenticate as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"7dvah9nJGvNxhygKCVzAEDf9v7hmdWT3t7TGjqXwWm6V8u9rE+gf41SOBl1Dms8qAWh3+fRZj9ONnwePvAuyDA==", "user_name"=>"clifford", "password"=>"[FILTERED]"}
+  [1m[36mUser Load (1.0ms)[0m  [1m[35mEXEC sp_executesql N'SELECT  [tblSecurityUsers].* FROM [tblSecurityUsers] WHERE [tblSecurityUsers].[LoginName] = @0  ORDER BY [tblSecurityUsers].[Id] ASC OFFSET 0 ROWS FETCH NEXT @1 ROWS ONLY', N'@0 varchar(50), @1 int', @0 = 'clifford', @1 = 1[0m  [["LoginName", nil], ["LIMIT", nil]]
+Completed 500 Internal Server Error in 229ms (ActiveRecord: 134.0ms)
+
+
+  
+NoMethodError (undefined method `[]' for nil:NilClass):
+  
+app/models/user.rb:70:in `is_valid_password?'
+app/controllers/login_controller.rb:23:in `authenticate'
+Started GET "/" for 10.0.2.71 at 2018-03-27 15:42:26 +0800
+Cannot render console from 10.0.2.71! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+  [1m[35mSQL (2.0ms)[0m  [1m[35mUSE [PPH_JAPPL][0m
+  [1m[35m (1.0ms)[0m  [1m[34mSELECT [schema_migrations].[version] FROM [schema_migrations]  ORDER BY [schema_migrations].[version] ASC[0m
+Processing by LoginController#index as HTML
+  Rendering login/index.html.erb within layouts/application
+  Rendered login/index.html.erb within layouts/application (35.0ms)
+Completed 200 OK in 4531ms (Views: 4466.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 10.0.2.71 at 2018-03-27 15:47:21 +0800
+  [1m[35mSQL (1.0ms)[0m  [1m[35mUSE [PPH_JAPPL][0m
+  [1m[35m (1.0ms)[0m  [1m[34mSELECT [schema_migrations].[version] FROM [schema_migrations]  ORDER BY [schema_migrations].[version] ASC[0m
+Processing by LoginController#index as HTML
+  Rendering login/index.html.erb within layouts/application
+  Rendered login/index.html.erb within layouts/application (13.0ms)
+Completed 200 OK in 4288ms (Views: 4211.0ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/login/authenticate" for 10.0.2.71 at 2018-03-27 15:48:17 +0800
+Processing by LoginController#authenticate as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"JhRGv2Mh0wUtOfx2XttcPsoY+TWwX9D+Cg2ssWadvCFePXNTqQDWFQgw0iEUHVME/I0xdCJzO9owJm2wf2ZUQw==", "user_name"=>"clifford", "password"=>"[FILTERED]"}
+  [1m[36mUser Load (2.0ms)[0m  [1m[35mEXEC sp_executesql N'SELECT  [tblSecurityUsers].* FROM [tblSecurityUsers] WHERE [tblSecurityUsers].[LoginName] = @0  ORDER BY [tblSecurityUsers].[Id] ASC OFFSET 0 ROWS FETCH NEXT @1 ROWS ONLY', N'@0 varchar(50), @1 int', @0 = 'clifford', @1 = 1[0m  [["LoginName", nil], ["LIMIT", nil]]
+Completed 500 Internal Server Error in 243ms (ActiveRecord: 124.0ms)
+
+
+  
+NoMethodError (undefined method `[]' for nil:NilClass):
+  
+app/models/user.rb:70:in `is_valid_password?'
+app/controllers/login_controller.rb:23:in `authenticate'
+Started GET "/" for 10.0.2.71 at 2018-03-27 15:52:46 +0800
+Processing by LoginController#index as HTML
+  Rendering login/index.html.erb within layouts/application
+  Rendered login/index.html.erb within layouts/application (4.0ms)
+Completed 200 OK in 918ms (Views: 881.9ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/login/authenticate" for 10.0.2.71 at 2018-03-27 15:53:01 +0800
+Processing by LoginController#authenticate as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"aSfwArrvGE02uC4Qd0f6mtHwmnHhjZN1OyOAnkVUDkIRDsXucM4dXROxAEc9gfWg52VSMHOheFEBCEGfXK/mIA==", "user_name"=>"Clifford", "password"=>"[FILTERED]"}
+Completed 500 Internal Server Error in 22ms (ActiveRecord: 0.0ms)
+
+
+  
+SyntaxError (D:/Projects/WebHostingManager/app/models/user.rb:62: syntax error, unexpected keyword_end, expecting end-of-input):
+  
+app/models/user.rb:62: syntax error, unexpected keyword_end, expecting end-of-input
+app/controllers/login_controller.rb:18:in `authenticate'
+Started GET "/login/authenticate" for 10.0.2.71 at 2018-03-27 15:53:17 +0800
+  
+ActionController::RoutingError (No route matches [GET] "/login/authenticate"):
+  
+actionpack (5.1.4) lib/action_dispatch/middleware/debug_exceptions.rb:63:in `call'
+web-console (3.5.1) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.5.1) lib/web_console/middleware.rb:28:in `block in call'
+web-console (3.5.1) lib/web_console/middleware.rb:18:in `catch'
+web-console (3.5.1) lib/web_console/middleware.rb:18:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.1.4) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.1.4) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.1.4) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.1.4) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.1.4) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.1.4) lib/rails/rack/logger.rb:24:in `call'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/remote_ip.rb:79:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/request_id.rb:25:in `call'
+rack (2.0.3) lib/rack/method_override.rb:22:in `call'
+rack (2.0.3) lib/rack/runtime.rb:22:in `call'
+activesupport (5.1.4) lib/active_support/cache/strategy/local_cache_middleware.rb:27:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/static.rb:125:in `call'
+rack (2.0.3) lib/rack/sendfile.rb:111:in `call'
+railties (5.1.4) lib/rails/engine.rb:522:in `call'
+puma (3.11.0) lib/puma/configuration.rb:225:in `call'
+puma (3.11.0) lib/puma/server.rb:624:in `handle_request'
+puma (3.11.0) lib/puma/server.rb:438:in `process_client'
+puma (3.11.0) lib/puma/server.rb:302:in `block in run'
+puma (3.11.0) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+Started POST "/login/authenticate" for 10.0.2.71 at 2018-03-27 15:53:26 +0800
+Processing by LoginController#authenticate as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"aSfwArrvGE02uC4Qd0f6mtHwmnHhjZN1OyOAnkVUDkIRDsXucM4dXROxAEc9gfWg52VSMHOheFEBCEGfXK/mIA==", "user_name"=>"Clifford", "password"=>"[FILTERED]"}
+  [1m[36mUser Load (1.0ms)[0m  [1m[35mEXEC sp_executesql N'SELECT  [tblSecurityUsers].* FROM [tblSecurityUsers] WHERE [tblSecurityUsers].[LoginName] = @0  ORDER BY [tblSecurityUsers].[Id] ASC OFFSET 0 ROWS FETCH NEXT @1 ROWS ONLY', N'@0 varchar(50), @1 int', @0 = 'Clifford', @1 = 1[0m  [["LoginName", nil], ["LIMIT", nil]]
+Redirected to http://10.0.2.71:1000/
+Completed 302 Found in 5184ms (ActiveRecord: 100.0ms)
+
+
+Started GET "/" for 10.0.2.71 at 2018-03-27 15:53:35 +0800
+Processing by LoginController#index as HTML
+  Rendering login/index.html.erb within layouts/application
+  Rendered login/index.html.erb within layouts/application (4.0ms)
+Completed 200 OK in 955ms (Views: 920.4ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/login/authenticate" for 10.0.2.71 at 2018-03-27 15:54:01 +0800
+Processing by LoginController#authenticate as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"/OusC7TC9v9daWLo+29LR+OSg27k09Sxsyggi8suASCEwpnnfuPz73hgTL+xqUR91QdLL3b/P5WJA+GK0tXpQg==", "user_name"=>"Clifford", "password"=>"[FILTERED]"}
+  [1m[36mUser Load (2.0ms)[0m  [1m[35mEXEC sp_executesql N'SELECT  [tblSecurityUsers].* FROM [tblSecurityUsers] WHERE [tblSecurityUsers].[LoginName] = @0  ORDER BY [tblSecurityUsers].[Id] ASC OFFSET 0 ROWS FETCH NEXT @1 ROWS ONLY', N'@0 varchar(50), @1 int', @0 = 'Clifford', @1 = 1[0m  [["LoginName", nil], ["LIMIT", nil]]
+Redirected to http://10.0.2.71:1000/
+Completed 302 Found in 5254ms (ActiveRecord: 135.0ms)
+
+
+Started GET "/" for 10.0.2.71 at 2018-03-27 15:54:07 +0800
+Processing by LoginController#index as HTML
+  Rendering login/index.html.erb within layouts/application
+  Rendered login/index.html.erb within layouts/application (7.0ms)
+Completed 200 OK in 989ms (Views: 953.3ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/login/authenticate" for 10.0.2.71 at 2018-03-27 15:54:17 +0800
+Processing by LoginController#authenticate as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"wseeBYlNRYT2HpaEfHofNCmaY/8y7BaRlTiMzW/0qSa67qvpQ2xAlNMXuNM2vBAOHw+rvqDA/bWvE03Mdg9BRA==", "user_name"=>"fdsf", "password"=>"[FILTERED]"}
+  [1m[36mUser Load (1.0ms)[0m  [1m[35mEXEC sp_executesql N'SELECT  [tblSecurityUsers].* FROM [tblSecurityUsers] WHERE [tblSecurityUsers].[LoginName] = @0  ORDER BY [tblSecurityUsers].[Id] ASC OFFSET 0 ROWS FETCH NEXT @1 ROWS ONLY', N'@0 varchar(50), @1 int', @0 = 'fdsf', @1 = 1[0m  [["LoginName", nil], ["LIMIT", nil]]
+Redirected to http://10.0.2.71:1000/
+Completed 302 Found in 210ms (ActiveRecord: 157.0ms)
+
+
+Started GET "/" for 10.0.2.71 at 2018-03-27 15:54:17 +0800
+Processing by LoginController#index as HTML
+  Rendering login/index.html.erb within layouts/application
+  Rendered login/index.html.erb within layouts/application (4.0ms)
+Completed 200 OK in 931ms (Views: 900.4ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/login/authenticate" for 10.0.2.71 at 2018-03-27 15:54:23 +0800
+Processing by LoginController#authenticate as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"q1FHEzatur1/5mx0cOHzqgPWcX9QqsYmsJJ8Om/PlzfTeHL//Iy/rVrvQiM6J/yQNUO5PsKGLQKKub07djR/VQ==", "user_name"=>"Clifford", "password"=>"[FILTERED]"}
+  [1m[36mUser Load (1.0ms)[0m  [1m[35mEXEC sp_executesql N'SELECT  [tblSecurityUsers].* FROM [tblSecurityUsers] WHERE [tblSecurityUsers].[LoginName] = @0  ORDER BY [tblSecurityUsers].[Id] ASC OFFSET 0 ROWS FETCH NEXT @1 ROWS ONLY', N'@0 varchar(50), @1 int', @0 = 'Clifford', @1 = 1[0m  [["LoginName", nil], ["LIMIT", nil]]
+Redirected to http://10.0.2.71:1000/
+Completed 302 Found in 5088ms (ActiveRecord: 1.0ms)
+
+
+Started GET "/" for 10.0.2.71 at 2018-03-27 15:54:28 +0800
+Processing by LoginController#index as HTML
+  Rendering login/index.html.erb within layouts/application
+  Rendered login/index.html.erb within layouts/application (7.0ms)
+Completed 200 OK in 1063ms (Views: 1031.0ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/login/authenticate" for 10.0.2.71 at 2018-03-27 15:55:18 +0800
+Processing by LoginController#authenticate as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"PAKw3/MhIohsaRAWGvKYmGOhiFaoKH8r9r4bvDpnghZEK4UzOQAnmElgPkFQNJeiVTRAFzoElA/Mldq9I5xqdA==", "user_name"=>"Clifford", "password"=>"[FILTERED]"}
+  [1m[36mUser Load (1.0ms)[0m  [1m[35mEXEC sp_executesql N'SELECT  [tblSecurityUsers].* FROM [tblSecurityUsers] WHERE [tblSecurityUsers].[LoginName] = @0  ORDER BY [tblSecurityUsers].[Id] ASC OFFSET 0 ROWS FETCH NEXT @1 ROWS ONLY', N'@0 varchar(50), @1 int', @0 = 'Clifford', @1 = 1[0m  [["LoginName", nil], ["LIMIT", nil]]
+Redirected to http://10.0.2.71:1000/
+Completed 302 Found in 5248ms (ActiveRecord: 129.0ms)
+
+
+Started GET "/" for 10.0.2.71 at 2018-03-27 15:55:24 +0800
+Processing by LoginController#index as HTML
+  Rendering login/index.html.erb within layouts/application
+  Rendered login/index.html.erb within layouts/application (4.0ms)
+Completed 200 OK in 774ms (Views: 743.7ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/login/authenticate" for 10.0.2.71 at 2018-03-27 15:55:51 +0800
+Processing by LoginController#authenticate as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"n9L6QGykhQ5RATYRPlJVbjMosFDN/oswgolL1yTP7ETn+8+spoWAHnQIGEZ0lFpUBb14EV/SYBS4oorWPTQEJg==", "user_name"=>"Clifford", "password"=>"[FILTERED]"}
+  [1m[36mUser Load (1.0ms)[0m  [1m[35mEXEC sp_executesql N'SELECT  [tblSecurityUsers].* FROM [tblSecurityUsers] WHERE [tblSecurityUsers].[LoginName] = @0  ORDER BY [tblSecurityUsers].[Id] ASC OFFSET 0 ROWS FETCH NEXT @1 ROWS ONLY', N'@0 varchar(50), @1 int', @0 = 'Clifford', @1 = 1[0m  [["LoginName", nil], ["LIMIT", nil]]
+Redirected to http://10.0.2.71:1000/
+Completed 302 Found in 5038ms (ActiveRecord: 1.0ms)
+
+
+Started GET "/" for 10.0.2.71 at 2018-03-27 15:55:57 +0800
+Processing by LoginController#index as HTML
+  Rendering login/index.html.erb within layouts/application
+  Rendered login/index.html.erb within layouts/application (3.0ms)
+Completed 200 OK in 821ms (Views: 793.0ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/login/authenticate" for 10.0.2.71 at 2018-03-27 15:56:23 +0800
+Processing by LoginController#authenticate as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"SsQ+jlty5XMo8SLHQ1Yt27LroMTT8IX791E8zODDnIoy7QtikVPgYw34DJAJkCLhhH5ohUHcbt/Nev3N+Th06A==", "user_name"=>"Clifford", "password"=>"[FILTERED]"}
+  [1m[36mUser Load (2.0ms)[0m  [1m[35mEXEC sp_executesql N'SELECT  [tblSecurityUsers].* FROM [tblSecurityUsers] WHERE [tblSecurityUsers].[LoginName] = @0  ORDER BY [tblSecurityUsers].[Id] ASC OFFSET 0 ROWS FETCH NEXT @1 ROWS ONLY', N'@0 varchar(50), @1 int', @0 = 'Clifford', @1 = 1[0m  [["LoginName", nil], ["LIMIT", nil]]
+Redirected to http://10.0.2.71:1000/
+Completed 302 Found in 5231ms (ActiveRecord: 125.0ms)
+
+
+Started GET "/" for 10.0.2.71 at 2018-03-27 15:56:29 +0800
+Processing by LoginController#index as HTML
+  Rendering login/index.html.erb within layouts/application
+  Rendered login/index.html.erb within layouts/application (4.0ms)
+Completed 200 OK in 946ms (Views: 914.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 10.0.2.71 at 2018-03-27 15:56:59 +0800
+Processing by LoginController#index as HTML
+  Rendering login/index.html.erb within layouts/application
+  Rendered login/index.html.erb within layouts/application (3.0ms)
+Completed 200 OK in 826ms (Views: 800.4ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/login/authenticate" for 10.0.2.71 at 2018-03-27 15:59:22 +0800
+  [1m[35mSQL (1.0ms)[0m  [1m[35mUSE [PPH_JAPPL][0m
+  [1m[35m (2.0ms)[0m  [1m[34mSELECT [schema_migrations].[version] FROM [schema_migrations]  ORDER BY [schema_migrations].[version] ASC[0m
+Processing by LoginController#authenticate as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"sxjiuUJyRlXVPbM5FgKBB0RpXeJ7X1/Td/rHwGxW1WrLMddViFNDRfA0nW5cxI49cvyVo+lztPdN0QbBda09CA==", "user_name"=>"Clifford", "password"=>"[FILTERED]"}
+Completed 500 Internal Server Error in 66ms (ActiveRecord: 0.0ms)
+
+
+  
+SyntaxError (D:/Projects/WebHostingManager/app/models/user.rb:13: dynamic constant assignment
+	LDAP_CONFIG = YAML.load_file("#{Rails.root}
+	             ^):
+  
+app/models/user.rb:13: dynamic constant assignment
+app/controllers/login_controller.rb:18:in `authenticate'
+Started POST "/login/authenticate" for 10.0.2.71 at 2018-03-27 16:00:28 +0800
+  [1m[35mSQL (1.0ms)[0m  [1m[35mUSE [PPH_JAPPL][0m
+  [1m[35m (1.0ms)[0m  [1m[34mSELECT [schema_migrations].[version] FROM [schema_migrations]  ORDER BY [schema_migrations].[version] ASC[0m
+Processing by LoginController#authenticate as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"sxjiuUJyRlXVPbM5FgKBB0RpXeJ7X1/Td/rHwGxW1WrLMddViFNDRfA0nW5cxI49cvyVo+lztPdN0QbBda09CA==", "user_name"=>"Clifford", "password"=>"[FILTERED]"}
+Completed 500 Internal Server Error in 39ms (ActiveRecord: 0.0ms)
+
+
+  
+SyntaxError (D:/Projects/WebHostingManager/app/models/user.rb:13: dynamic constant assignment
+	LDAP_CONFIG = YAML.load_file("#{Rails.root}
+	             ^):
+  
+app/models/user.rb:13: dynamic constant assignment
+app/controllers/login_controller.rb:18:in `authenticate'
+Started POST "/login/authenticate" for 10.0.2.71 at 2018-03-27 16:01:48 +0800
+  [1m[35mSQL (1.0ms)[0m  [1m[35mUSE [PPH_JAPPL][0m
+  [1m[35m (1.0ms)[0m  [1m[34mSELECT [schema_migrations].[version] FROM [schema_migrations]  ORDER BY [schema_migrations].[version] ASC[0m
+Processing by LoginController#authenticate as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"sxjiuUJyRlXVPbM5FgKBB0RpXeJ7X1/Td/rHwGxW1WrLMddViFNDRfA0nW5cxI49cvyVo+lztPdN0QbBda09CA==", "user_name"=>"Clifford", "password"=>"[FILTERED]"}
+  [1m[36mUser Load (2.0ms)[0m  [1m[35mEXEC sp_executesql N'SELECT  [tblSecurityUsers].* FROM [tblSecurityUsers] WHERE [tblSecurityUsers].[LoginName] = @0  ORDER BY [tblSecurityUsers].[Id] ASC OFFSET 0 ROWS FETCH NEXT @1 ROWS ONLY', N'@0 varchar(50), @1 int', @0 = 'Clifford', @1 = 1[0m  [["LoginName", nil], ["LIMIT", nil]]
+Redirected to http://10.0.2.71:1000/server_accounts
+Completed 302 Found in 477ms (ActiveRecord: 127.0ms)
+
+
+Started GET "/server_accounts" for 10.0.2.71 at 2018-03-27 16:02:02 +0800
+Processing by ServerAccountsController#index as HTML
+  [1m[36mServerAccount Load (282.0ms)[0m  [1m[35mEXEC sp_executesql N'SELECT  [tblServerAccounts].* FROM [tblServerAccounts] WHERE (Active = 1)  ORDER BY AccountCode asc OFFSET @0 ROWS FETCH NEXT @1 ROWS ONLY', N'@0 int, @1 int', @0 = 0, @1 = 6[0m  [["OFFSET", nil], ["LIMIT", nil]]
+  Rendering server_accounts/index.html.erb within layouts/application
+  [1m[35m (34.0ms)[0m  [1m[34mSELECT COUNT(*) FROM [tblServerAccounts] WHERE (Active = 1)[0m
+  Rendered server_accounts/_server_accounts.html.erb (159.0ms)
+  Rendered server_accounts/index.html.erb within layouts/application (211.0ms)
+Completed 200 OK in 2540ms (Views: 1980.1ms | ActiveRecord: 384.0ms)
+
+
+Started GET "/logout" for 10.0.2.71 at 2018-03-27 16:02:40 +0800
+Processing by LogoutController#index as HTML
+Redirected to http://10.0.2.71:1000/
+Completed 302 Found in 8ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 10.0.2.71 at 2018-03-27 16:02:40 +0800
+Processing by LoginController#index as HTML
+  Rendering login/index.html.erb within layouts/application
+  Rendered login/index.html.erb within layouts/application (3.0ms)
+Completed 200 OK in 752ms (Views: 726.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 10.0.2.71 at 2018-03-27 16:05:11 +0800
+  [1m[35mSQL (1.0ms)[0m  [1m[35mUSE [PPH_JAPPL][0m
+  [1m[35m (1.0ms)[0m  [1m[34mSELECT [schema_migrations].[version] FROM [schema_migrations]  ORDER BY [schema_migrations].[version] ASC[0m
+Processing by LoginController#index as HTML
+  Rendering login/index.html.erb within layouts/application
+  Rendered login/index.html.erb within layouts/application (15.0ms)
+Completed 200 OK in 2565ms (Views: 2504.0ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/login/authenticate" for 10.0.2.71 at 2018-03-27 16:07:52 +0800
+Processing by LoginController#authenticate as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"TC3dbuWx89ZWRi/tbIVaLPDqyf6Ya47f2xfAllCpL1aLLfWaqY+XmVsjYXmykXAPniBTVxgs/nFUgtwNmjY7yg==", "user_name"=>"Clifford", "password"=>"[FILTERED]"}
+  [1m[36mUser Load (1.0ms)[0m  [1m[35mEXEC sp_executesql N'SELECT  [tblSecurityUsers].* FROM [tblSecurityUsers] WHERE [tblSecurityUsers].[LoginName] = @0  ORDER BY [tblSecurityUsers].[Id] ASC OFFSET 0 ROWS FETCH NEXT @1 ROWS ONLY', N'@0 varchar(50), @1 int', @0 = 'Clifford', @1 = 1[0m  [["LoginName", nil], ["LIMIT", nil]]
+Completed 500 Internal Server Error in 338ms (ActiveRecord: 128.0ms)
+
+
+  
+NameError (undefined local variable or method `ldap_config' for #<Class:0x000000000c41ab70>):
+  
+app/models/user.rb:13:in `is_valid_password?'
+app/controllers/login_controller.rb:23:in `authenticate'
+Started GET "/" for 10.0.2.71 at 2018-03-27 16:10:41 +0800
+  [1m[35mSQL (1.0ms)[0m  [1m[35mUSE [PPH_JAPPL][0m
+  [1m[35m (1.0ms)[0m  [1m[34mSELECT [schema_migrations].[version] FROM [schema_migrations]  ORDER BY [schema_migrations].[version] ASC[0m
+Processing by LoginController#index as HTML
+  Rendering login/index.html.erb within layouts/application
+  Rendered login/index.html.erb within layouts/application (8.0ms)
+Completed 200 OK in 2224ms (Views: 2185.4ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/login/authenticate" for 10.0.2.71 at 2018-03-27 16:17:11 +0800
+Processing by LoginController#authenticate as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"EYeMIpqZKVt62GioVeqbK0csyg+64mFcQG0XgWeRrS/Wh6TW1qdNFHe9JjyL/rEIKeZQpjqlEfLP+AsarQ65sw==", "user_name"=>"Clifford", "password"=>"[FILTERED]"}
+  [1m[36mUser Load (2.0ms)[0m  [1m[35mEXEC sp_executesql N'SELECT  [tblSecurityUsers].* FROM [tblSecurityUsers] WHERE [tblSecurityUsers].[LoginName] = @0  ORDER BY [tblSecurityUsers].[Id] ASC OFFSET 0 ROWS FETCH NEXT @1 ROWS ONLY', N'@0 varchar(50), @1 int', @0 = 'Clifford', @1 = 1[0m  [["LoginName", nil], ["LIMIT", nil]]
+Completed 500 Internal Server Error in 354ms (ActiveRecord: 172.0ms)
+
+
+  
+NameError (undefined local variable or method `ldap_config' for #<Class:0x000000000ba40708>):
+  
+app/models/user.rb:13:in `is_valid_password?'
+app/controllers/login_controller.rb:23:in `authenticate'
+Started POST "/login/authenticate" for 10.0.2.71 at 2018-03-27 16:18:07 +0800
+Processing by LoginController#authenticate as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"EYeMIpqZKVt62GioVeqbK0csyg+64mFcQG0XgWeRrS/Wh6TW1qdNFHe9JjyL/rEIKeZQpjqlEfLP+AsarQ65sw==", "user_name"=>"Clifford", "password"=>"[FILTERED]"}
+  [1m[36mUser Load (2.0ms)[0m  [1m[35mEXEC sp_executesql N'SELECT  [tblSecurityUsers].* FROM [tblSecurityUsers] WHERE [tblSecurityUsers].[LoginName] = @0  ORDER BY [tblSecurityUsers].[Id] ASC OFFSET 0 ROWS FETCH NEXT @1 ROWS ONLY', N'@0 varchar(50), @1 int', @0 = 'Clifford', @1 = 1[0m  [["LoginName", nil], ["LIMIT", nil]]
+Completed 500 Internal Server Error in 214ms (ActiveRecord: 129.0ms)
+
+
+  
+NameError (uninitialized constant User::LDAP_CONFIG):
+  
+app/models/user.rb:13:in `is_valid_password?'
+app/controllers/login_controller.rb:23:in `authenticate'
+Started GET "/" for 10.0.2.71 at 2018-03-27 16:19:44 +0800
+Processing by LoginController#index as HTML
+  Rendering login/index.html.erb within layouts/application
+  Rendered login/index.html.erb within layouts/application (4.0ms)
+Completed 200 OK in 850ms (Views: 816.0ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/login/authenticate" for 10.0.2.71 at 2018-03-27 16:19:58 +0800
+Processing by LoginController#authenticate as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"YPvBqEhW90W/QbP+mkwJSHqyiN/yPPgg/6OYG3grqZan++lcBGiTCrIk/WpEWCNrFHgSdnJ7iI5wNoSAsrS9Cg==", "user_name"=>"Clifford", "password"=>"[FILTERED]"}
+  [1m[36mUser Load (2.0ms)[0m  [1m[35mEXEC sp_executesql N'SELECT  [tblSecurityUsers].* FROM [tblSecurityUsers] WHERE [tblSecurityUsers].[LoginName] = @0  ORDER BY [tblSecurityUsers].[Id] ASC OFFSET 0 ROWS FETCH NEXT @1 ROWS ONLY', N'@0 varchar(50), @1 int', @0 = 'Clifford', @1 = 1[0m  [["LoginName", nil], ["LIMIT", nil]]
+Completed 500 Internal Server Error in 19ms (ActiveRecord: 2.0ms)
+
+
+  
+NameError (uninitialized constant User::LDAP_CONFIG):
+  
+app/models/user.rb:13:in `is_valid_password?'
+app/controllers/login_controller.rb:23:in `authenticate'
+Started GET "/" for 10.0.2.71 at 2018-03-27 16:20:40 +0800
+  [1m[35mSQL (1.0ms)[0m  [1m[35mUSE [PPH_JAPPL][0m
+  [1m[35m (2.0ms)[0m  [1m[34mSELECT [schema_migrations].[version] FROM [schema_migrations]  ORDER BY [schema_migrations].[version] ASC[0m
+Processing by LoginController#index as HTML
+  Rendering login/index.html.erb within layouts/application
+  Rendered login/index.html.erb within layouts/application (6.0ms)
+Completed 200 OK in 3435ms (Views: 3372.2ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/login/authenticate" for 10.0.2.71 at 2018-03-27 16:21:37 +0800
+Processing by LoginController#authenticate as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"4fPqYpPisWCZZMnl77wsX7oVaAedzkDBqSHpP5BeX24m88KW39zVL5QBh3ExqAZ81N/yrh2JMG8mtPWkWsFL8g==", "user_name"=>"Clifford", "password"=>"[FILTERED]"}
+  [1m[36mUser Load (1.0ms)[0m  [1m[35mEXEC sp_executesql N'SELECT  [tblSecurityUsers].* FROM [tblSecurityUsers] WHERE [tblSecurityUsers].[LoginName] = @0  ORDER BY [tblSecurityUsers].[Id] ASC OFFSET 0 ROWS FETCH NEXT @1 ROWS ONLY', N'@0 varchar(50), @1 int', @0 = 'Clifford', @1 = 1[0m  [["LoginName", nil], ["LIMIT", nil]]
+Redirected to http://10.0.2.71:1000/
+Completed 302 Found in 361ms (ActiveRecord: 128.0ms)
+
+
+Started GET "/" for 10.0.2.71 at 2018-03-27 16:21:38 +0800
+Processing by LoginController#index as HTML
+  Rendering login/index.html.erb within layouts/application
+  Rendered login/index.html.erb within layouts/application (3.0ms)
+Completed 200 OK in 751ms (Views: 726.4ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/login/authenticate" for 10.0.2.71 at 2018-03-27 16:23:24 +0800
+Processing by LoginController#authenticate as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"bE3l+9gaAjj8y4nJZKcF+MEqkpfSvMDiwnPseWKVbw6rTc0PlCRmd/Gux126sy/br+AIPlL7sExN5vDiqAp7kg==", "user_name"=>"Clifford", "password"=>"[FILTERED]"}
+  [1m[36mUser Load (1.0ms)[0m  [1m[35mEXEC sp_executesql N'SELECT  [tblSecurityUsers].* FROM [tblSecurityUsers] WHERE [tblSecurityUsers].[LoginName] = @0  ORDER BY [tblSecurityUsers].[Id] ASC OFFSET 0 ROWS FETCH NEXT @1 ROWS ONLY', N'@0 varchar(50), @1 int', @0 = 'Clifford', @1 = 1[0m  [["LoginName", nil], ["LIMIT", nil]]
+Redirected to http://10.0.2.71:1000/
+Completed 302 Found in 329ms (ActiveRecord: 131.0ms)
+
+
+Started GET "/" for 10.0.2.71 at 2018-03-27 16:23:25 +0800
+Processing by LoginController#index as HTML
+  Rendering login/index.html.erb within layouts/application
+  Rendered login/index.html.erb within layouts/application (3.0ms)
+Completed 200 OK in 760ms (Views: 734.2ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/login/authenticate" for 10.0.2.71 at 2018-03-27 16:24:23 +0800
+Processing by LoginController#authenticate as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"P/h5f1/R3DIbZtrfJUyulw/L1YocPFY7NqsNizsqfTj4+FGLE++4fRYDlEv7WIS0YQFPI5x7JpW5PhEQ8bVppA==", "user_name"=>"Clifford", "password"=>"[FILTERED]"}
+  [1m[36mUser Load (2.0ms)[0m  [1m[35mEXEC sp_executesql N'SELECT  [tblSecurityUsers].* FROM [tblSecurityUsers] WHERE [tblSecurityUsers].[LoginName] = @0  ORDER BY [tblSecurityUsers].[Id] ASC OFFSET 0 ROWS FETCH NEXT @1 ROWS ONLY', N'@0 varchar(50), @1 int', @0 = 'Clifford', @1 = 1[0m  [["LoginName", nil], ["LIMIT", nil]]
+Redirected to http://10.0.2.71:1000/
+Completed 302 Found in 377ms (ActiveRecord: 143.0ms)
+
+
+Started GET "/" for 10.0.2.71 at 2018-03-27 16:24:24 +0800
+Processing by LoginController#index as HTML
+  Rendering login/index.html.erb within layouts/application
+  Rendered login/index.html.erb within layouts/application (4.0ms)
+Completed 200 OK in 618ms (Views: 593.5ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/login/authenticate" for 10.0.2.71 at 2018-03-27 16:25:34 +0800
+Processing by LoginController#authenticate as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"MVHn6+BJCKBjYwFzSIph4O5E+L6nLtvdwmmYSrgg25X2Uc8frHds724GT+eWnkvDgI5iFydpq3NN/ITRcr/PCQ==", "user_name"=>"Clifford", "password"=>"[FILTERED]"}
+  [1m[36mUser Load (1.0ms)[0m  [1m[35mEXEC sp_executesql N'SELECT  [tblSecurityUsers].* FROM [tblSecurityUsers] WHERE [tblSecurityUsers].[LoginName] = @0  ORDER BY [tblSecurityUsers].[Id] ASC OFFSET 0 ROWS FETCH NEXT @1 ROWS ONLY', N'@0 varchar(50), @1 int', @0 = 'Clifford', @1 = 1[0m  [["LoginName", nil], ["LIMIT", nil]]
+Redirected to http://10.0.2.71:1000/
+Completed 302 Found in 246ms (ActiveRecord: 124.0ms)
+
+
+Started GET "/" for 10.0.2.71 at 2018-03-27 16:25:34 +0800
+Processing by LoginController#index as HTML
+  Rendering login/index.html.erb within layouts/application
+  Rendered login/index.html.erb within layouts/application (4.0ms)
+Completed 200 OK in 863ms (Views: 836.1ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/login/authenticate" for 10.0.2.71 at 2018-03-27 16:25:41 +0800
+Processing by LoginController#authenticate as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"Fa77lyrD/st5tzwPfcnl+fz81odPXk8pHcrzNN7ihILSrtNjZv2ahHTScpuj3c/akjZMLs8ZP4eSX++vFH2QHg==", "user_name"=>"Clifford", "password"=>"[FILTERED]"}
+  [1m[36mUser Load (2.0ms)[0m  [1m[35mEXEC sp_executesql N'SELECT  [tblSecurityUsers].* FROM [tblSecurityUsers] WHERE [tblSecurityUsers].[LoginName] = @0  ORDER BY [tblSecurityUsers].[Id] ASC OFFSET 0 ROWS FETCH NEXT @1 ROWS ONLY', N'@0 varchar(50), @1 int', @0 = 'Clifford', @1 = 1[0m  [["LoginName", nil], ["LIMIT", nil]]
+Redirected to http://10.0.2.71:1000/
+Completed 302 Found in 152ms (ActiveRecord: 2.0ms)
+
+
+Started GET "/" for 10.0.2.71 at 2018-03-27 16:25:41 +0800
+Processing by LoginController#index as HTML
+  Rendering login/index.html.erb within layouts/application
+  Rendered login/index.html.erb within layouts/application (4.0ms)
+Completed 200 OK in 904ms (Views: 877.5ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/login/authenticate" for 10.0.2.71 at 2018-03-27 16:26:01 +0800
+Processing by LoginController#authenticate as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"6L3bOXRvN7errKiHt37Hjn8QXiGLVS6z4jkCiL8B3ysvvfPNOFFT+KbJ5hNpau2tEdrEiAsSXh1trB4TdZ7Ltw==", "user_name"=>"Clifford", "password"=>"[FILTERED]"}
+  [1m[36mUser Load (2.0ms)[0m  [1m[35mEXEC sp_executesql N'SELECT  [tblSecurityUsers].* FROM [tblSecurityUsers] WHERE [tblSecurityUsers].[LoginName] = @0  ORDER BY [tblSecurityUsers].[Id] ASC OFFSET 0 ROWS FETCH NEXT @1 ROWS ONLY', N'@0 varchar(50), @1 int', @0 = 'Clifford', @1 = 1[0m  [["LoginName", nil], ["LIMIT", nil]]
+Redirected to http://10.0.2.71:1000/
+Completed 302 Found in 400ms (ActiveRecord: 140.0ms)
+
+
+Started GET "/" for 10.0.2.71 at 2018-03-27 16:26:02 +0800
+Processing by LoginController#index as HTML
+  Rendering login/index.html.erb within layouts/application
+  Rendered login/index.html.erb within layouts/application (6.0ms)
+Completed 200 OK in 1184ms (Views: 1141.6ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/login/authenticate" for 10.0.2.71 at 2018-03-27 16:26:41 +0800
+Processing by LoginController#authenticate as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"rBGOcRbCfxSV/iIKsDmnJcM+cWmW91HeXzUIUls5VIxrEaaFWvwbW5ibbJ5uLY0GrfTrwBawIXDQoBTJkaZAEA==", "user_name"=>"Clifford", "password"=>"[FILTERED]"}
+  [1m[36mUser Load (1.0ms)[0m  [1m[35mEXEC sp_executesql N'SELECT  [tblSecurityUsers].* FROM [tblSecurityUsers] WHERE [tblSecurityUsers].[LoginName] = @0  ORDER BY [tblSecurityUsers].[Id] ASC OFFSET 0 ROWS FETCH NEXT @1 ROWS ONLY', N'@0 varchar(50), @1 int', @0 = 'Clifford', @1 = 1[0m  [["LoginName", nil], ["LIMIT", nil]]
+Redirected to http://10.0.2.71:1000/
+Completed 302 Found in 340ms (ActiveRecord: 142.0ms)
+
+
+Started GET "/" for 10.0.2.71 at 2018-03-27 16:26:41 +0800
+Processing by LoginController#index as HTML
+  Rendering login/index.html.erb within layouts/application
+  Rendered login/index.html.erb within layouts/application (4.0ms)
+Completed 200 OK in 968ms (Views: 930.9ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/login/authenticate" for 10.0.2.71 at 2018-03-27 16:29:41 +0800
+Processing by LoginController#authenticate as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"wmn9kQW6Vuk97nglC/IlABCJe3Lvl9pxTiNn8SoaHwAFadVlSYQypjCLNrHV5g8jfkPh22/Qqt/Btntq4IULnA==", "user_name"=>"Clifford", "password"=>"[FILTERED]"}
+  [1m[36mUser Load (2.0ms)[0m  [1m[35mEXEC sp_executesql N'SELECT  [tblSecurityUsers].* FROM [tblSecurityUsers] WHERE [tblSecurityUsers].[LoginName] = @0  ORDER BY [tblSecurityUsers].[Id] ASC OFFSET 0 ROWS FETCH NEXT @1 ROWS ONLY', N'@0 varchar(50), @1 int', @0 = 'Clifford', @1 = 1[0m  [["LoginName", nil], ["LIMIT", nil]]
+Redirected to http://10.0.2.71:1000/server_accounts
+Completed 302 Found in 324ms (ActiveRecord: 130.0ms)
+
+
+Started GET "/server_accounts" for 10.0.2.71 at 2018-03-27 16:29:42 +0800
+Processing by ServerAccountsController#index as HTML
+  [1m[36mServerAccount Load (4.0ms)[0m  [1m[35mEXEC sp_executesql N'SELECT  [tblServerAccounts].* FROM [tblServerAccounts] WHERE (Active = 1)  ORDER BY AccountCode asc OFFSET @0 ROWS FETCH NEXT @1 ROWS ONLY', N'@0 int, @1 int', @0 = 0, @1 = 6[0m  [["OFFSET", nil], ["LIMIT", nil]]
+  Rendering server_accounts/index.html.erb within layouts/application
+  [1m[35m (1.0ms)[0m  [1m[34mSELECT COUNT(*) FROM [tblServerAccounts] WHERE (Active = 1)[0m
+  Rendered server_accounts/_server_accounts.html.erb (45.0ms)
+  Rendered server_accounts/index.html.erb within layouts/application (77.0ms)
+Completed 200 OK in 1015ms (Views: 822.1ms | ActiveRecord: 88.0ms)
+
+
+Started GET "/logout" for 10.0.2.71 at 2018-03-27 16:29:46 +0800
+Processing by LogoutController#index as HTML
+Redirected to http://10.0.2.71:1000/
+Completed 302 Found in 11ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 10.0.2.71 at 2018-03-27 16:29:46 +0800
+Processing by LoginController#index as HTML
+  Rendering login/index.html.erb within layouts/application
+  Rendered login/index.html.erb within layouts/application (4.0ms)
+Completed 200 OK in 845ms (Views: 812.3ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/login/authenticate" for 10.0.2.71 at 2018-03-27 16:30:42 +0800
+Processing by LoginController#authenticate as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"YUVdWId3zkbpse/D5fFGgdl2lpLRlSvTqLcEmja1xX0jGmgiqh1tYJ+5XAQ6909ZQs5PeCokuNZ2fpiXbVYRgQ==", "user_name"=>"Clifford", "password"=>"[FILTERED]"}
+  [1m[36mUser Load (1.0ms)[0m  [1m[35mEXEC sp_executesql N'SELECT  [tblSecurityUsers].* FROM [tblSecurityUsers] WHERE [tblSecurityUsers].[LoginName] = @0  ORDER BY [tblSecurityUsers].[Id] ASC OFFSET 0 ROWS FETCH NEXT @1 ROWS ONLY', N'@0 varchar(50), @1 int', @0 = 'Clifford', @1 = 1[0m  [["LoginName", nil], ["LIMIT", nil]]
+Redirected to http://10.0.2.71:1000/
+Completed 302 Found in 345ms (ActiveRecord: 150.0ms)
+
+
+Started GET "/" for 10.0.2.71 at 2018-03-27 16:30:43 +0800
+Processing by LoginController#index as HTML
+  Rendering login/index.html.erb within layouts/application
+  Rendered login/index.html.erb within layouts/application (3.0ms)
+Completed 200 OK in 686ms (Views: 660.1ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/login/authenticate" for 10.0.2.71 at 2018-03-27 16:31:21 +0800
+Processing by LoginController#authenticate as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"IgN/32JSZX8+OMSANWF9DbNPlzJaWzORZFpsG2HiK+CShcMfjgqV61EI3p1CN0ePZFzoe2Tn/305ce7EBG07fg==", "user_name"=>"Clifford", "password"=>"[FILTERED]"}
+  [1m[36mUser Load (1.0ms)[0m  [1m[35mEXEC sp_executesql N'SELECT  [tblSecurityUsers].* FROM [tblSecurityUsers] WHERE [tblSecurityUsers].[LoginName] = @0  ORDER BY [tblSecurityUsers].[Id] ASC OFFSET 0 ROWS FETCH NEXT @1 ROWS ONLY', N'@0 varchar(50), @1 int', @0 = 'Clifford', @1 = 1[0m  [["LoginName", nil], ["LIMIT", nil]]
+Redirected to http://10.0.2.71:1000/
+Completed 302 Found in 436ms (ActiveRecord: 160.0ms)
+
+
+Started GET "/" for 10.0.2.71 at 2018-03-27 16:31:22 +0800
+Processing by LoginController#index as HTML
+  Rendering login/index.html.erb within layouts/application
+  Rendered login/index.html.erb within layouts/application (7.0ms)
+Completed 200 OK in 909ms (Views: 871.6ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/login/authenticate" for 10.0.2.71 at 2018-03-27 16:32:17 +0800
+Processing by LoginController#authenticate as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"k7GgnETkXqXsA9o7iXLdO+xicuGbdQ0gV1x/pPPChZ0jNxxcqLyuMYMzwCb+JOe5O3ENqKXJwcwKd/17lk2VAw==", "user_name"=>"Clifford", "password"=>"[FILTERED]"}
+  [1m[36mUser Load (1.0ms)[0m  [1m[35mEXEC sp_executesql N'SELECT  [tblSecurityUsers].* FROM [tblSecurityUsers] WHERE [tblSecurityUsers].[LoginName] = @0  ORDER BY [tblSecurityUsers].[Id] ASC OFFSET 0 ROWS FETCH NEXT @1 ROWS ONLY', N'@0 varchar(50), @1 int', @0 = 'Clifford', @1 = 1[0m  [["LoginName", nil], ["LIMIT", nil]]
+Redirected to http://10.0.2.71:1000/
+Completed 302 Found in 386ms (ActiveRecord: 179.0ms)
+
+
+Started GET "/" for 10.0.2.71 at 2018-03-27 16:32:17 +0800
+Processing by LoginController#index as HTML
+  Rendering login/index.html.erb within layouts/application
+  Rendered login/index.html.erb within layouts/application (4.0ms)
+Completed 200 OK in 876ms (Views: 848.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 10.0.2.71 at 2018-03-27 16:33:20 +0800
+  [1m[35mSQL (1.0ms)[0m  [1m[35mUSE [PPH_JAPPL][0m
+  [1m[35m (2.0ms)[0m  [1m[34mSELECT [schema_migrations].[version] FROM [schema_migrations]  ORDER BY [schema_migrations].[version] ASC[0m
+Processing by LoginController#index as HTML
+  Rendering login/index.html.erb within layouts/application
+  Rendered login/index.html.erb within layouts/application (13.0ms)
+Completed 200 OK in 2933ms (Views: 2871.0ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/login/authenticate" for 10.0.2.71 at 2018-03-27 16:34:14 +0800
+Processing by LoginController#authenticate as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"cHSZhk68NiLpVzMz/J4XHB40ZkQ591OMtwTwst4vxTHA8iVGouTGtoZnKS6LyC2eyScZDQdLn2DqL3Jtu6DVrw==", "user_name"=>"Clifford", "password"=>"[FILTERED]"}
+  [1m[36mUser Load (1.0ms)[0m  [1m[35mEXEC sp_executesql N'SELECT  [tblSecurityUsers].* FROM [tblSecurityUsers] WHERE [tblSecurityUsers].[LoginName] = @0  ORDER BY [tblSecurityUsers].[Id] ASC OFFSET 0 ROWS FETCH NEXT @1 ROWS ONLY', N'@0 varchar(50), @1 int', @0 = 'Clifford', @1 = 1[0m  [["LoginName", nil], ["LIMIT", nil]]
+Redirected to http://10.0.2.71:1000/
+Completed 302 Found in 380ms (ActiveRecord: 163.0ms)
+
+
+Started GET "/" for 10.0.2.71 at 2018-03-27 16:34:14 +0800
+Processing by LoginController#index as HTML
+  Rendering login/index.html.erb within layouts/application
+  Rendered login/index.html.erb within layouts/application (4.0ms)
+Completed 200 OK in 933ms (Views: 905.2ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/login/authenticate" for 10.0.2.71 at 2018-03-27 16:34:31 +0800
+Processing by LoginController#authenticate as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"GeXjETUepFQOTsEeXH37NuZTPOhKiU71bfgu9OJNHkmpY1/R2UZUwGF+2wMrK8G0MUBDoXQ1ghkw06wrh8IO1w==", "user_name"=>"Clifford", "password"=>"[FILTERED]"}
+  [1m[36mUser Load (1.0ms)[0m  [1m[35mEXEC sp_executesql N'SELECT  [tblSecurityUsers].* FROM [tblSecurityUsers] WHERE [tblSecurityUsers].[LoginName] = @0  ORDER BY [tblSecurityUsers].[Id] ASC OFFSET 0 ROWS FETCH NEXT @1 ROWS ONLY', N'@0 varchar(50), @1 int', @0 = 'Clifford', @1 = 1[0m  [["LoginName", nil], ["LIMIT", nil]]
+Redirected to http://10.0.2.71:1000/
+Completed 302 Found in 412ms (ActiveRecord: 216.0ms)
+
+
+Started GET "/" for 10.0.2.71 at 2018-03-27 16:34:32 +0800
+Processing by LoginController#index as HTML
+  Rendering login/index.html.erb within layouts/application
+  Rendered login/index.html.erb within layouts/application (4.0ms)
+Completed 200 OK in 1086ms (Views: 1051.9ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/login/authenticate" for 10.0.2.71 at 2018-03-27 16:34:53 +0800
+Processing by LoginController#authenticate as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"P+aEEWH7PE+qD8/WzKbXSC3AXu68QmJcvWjeaQJhZ1uPYDjRjaPM28U/1cu78O3K+tMhp4L+rrDgQ1y2Z+53xQ==", "user_name"=>"Clifford", "password"=>"[FILTERED]"}
+  [1m[36mUser Load (2.0ms)[0m  [1m[35mEXEC sp_executesql N'SELECT  [tblSecurityUsers].* FROM [tblSecurityUsers] WHERE [tblSecurityUsers].[LoginName] = @0  ORDER BY [tblSecurityUsers].[Id] ASC OFFSET 0 ROWS FETCH NEXT @1 ROWS ONLY', N'@0 varchar(50), @1 int', @0 = 'Clifford', @1 = 1[0m  [["LoginName", nil], ["LIMIT", nil]]
+Redirected to http://10.0.2.71:1000/
+Completed 302 Found in 345ms (ActiveRecord: 132.0ms)
+
+
+Started GET "/" for 10.0.2.71 at 2018-03-27 16:34:53 +0800
+Processing by LoginController#index as HTML
+  Rendering login/index.html.erb within layouts/application
+  Rendered login/index.html.erb within layouts/application (3.0ms)
+Completed 200 OK in 900ms (Views: 872.8ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/login/authenticate" for 10.0.2.71 at 2018-03-27 16:35:09 +0800
+Processing by LoginController#authenticate as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"ShRoMtpjvxcv/Y8/gZLih/HKtZUeYW1Uz2HBNFhKlcj6ktTyNjtPg0DNlSL2xNgFJtnK3CDdobiSSkPrPcWFVg==", "user_name"=>"Clifford", "password"=>"[FILTERED]"}
+  [1m[36mUser Load (2.0ms)[0m  [1m[35mEXEC sp_executesql N'SELECT  [tblSecurityUsers].* FROM [tblSecurityUsers] WHERE [tblSecurityUsers].[LoginName] = @0  ORDER BY [tblSecurityUsers].[Id] ASC OFFSET 0 ROWS FETCH NEXT @1 ROWS ONLY', N'@0 varchar(50), @1 int', @0 = 'Clifford', @1 = 1[0m  [["LoginName", nil], ["LIMIT", nil]]
+Redirected to http://10.0.2.71:1000/
+Completed 302 Found in 359ms (ActiveRecord: 221.0ms)
+
+
+Started GET "/" for 10.0.2.71 at 2018-03-27 16:35:09 +0800
+Processing by LoginController#index as HTML
+  Rendering login/index.html.erb within layouts/application
+  Rendered login/index.html.erb within layouts/application (3.0ms)
+Completed 200 OK in 969ms (Views: 939.7ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/login/authenticate" for 10.0.2.71 at 2018-03-27 16:35:13 +0800
+Processing by LoginController#authenticate as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"ycZjL3WOIk33c5pNUA1SgRwa1foRuiIn281A4hgn6gJ5QN/vmdbS2ZhDgFAnW2gDywmqsy8G7suG5sI9faj6nA==", "user_name"=>"Clifford", "password"=>"[FILTERED]"}
+  [1m[36mUser Load (6.0ms)[0m  [1m[35mEXEC sp_executesql N'SELECT  [tblSecurityUsers].* FROM [tblSecurityUsers] WHERE [tblSecurityUsers].[LoginName] = @0  ORDER BY [tblSecurityUsers].[Id] ASC OFFSET 0 ROWS FETCH NEXT @1 ROWS ONLY', N'@0 varchar(50), @1 int', @0 = 'Clifford', @1 = 1[0m  [["LoginName", nil], ["LIMIT", nil]]
+Redirected to http://10.0.2.71:1000/server_accounts
+Completed 302 Found in 138ms (ActiveRecord: 6.0ms)
+
+
+Started GET "/server_accounts" for 10.0.2.71 at 2018-03-27 16:35:14 +0800
+Processing by ServerAccountsController#index as HTML
+  [1m[36mServerAccount Load (2.0ms)[0m  [1m[35mEXEC sp_executesql N'SELECT  [tblServerAccounts].* FROM [tblServerAccounts] WHERE (Active = 1)  ORDER BY AccountCode asc OFFSET @0 ROWS FETCH NEXT @1 ROWS ONLY', N'@0 int, @1 int', @0 = 0, @1 = 6[0m  [["OFFSET", nil], ["LIMIT", nil]]
+  Rendering server_accounts/index.html.erb within layouts/application
+  [1m[35m (1.0ms)[0m  [1m[34mSELECT COUNT(*) FROM [tblServerAccounts] WHERE (Active = 1)[0m
+  Rendered server_accounts/_server_accounts.html.erb (49.0ms)
+  Rendered server_accounts/index.html.erb within layouts/application (85.0ms)
+Completed 200 OK in 982ms (Views: 783.8ms | ActiveRecord: 91.0ms)
+
+
+Started GET "/logout" for 10.0.2.71 at 2018-03-27 16:35:18 +0800
+Processing by LogoutController#index as HTML
+Redirected to http://10.0.2.71:1000/
+Completed 302 Found in 6ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 10.0.2.71 at 2018-03-27 16:35:18 +0800
+Processing by LoginController#index as HTML
+  Rendering login/index.html.erb within layouts/application
+  Rendered login/index.html.erb within layouts/application (5.0ms)
+Completed 200 OK in 896ms (Views: 869.9ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/login/authenticate" for 10.0.2.71 at 2018-03-27 16:37:56 +0800
+Processing by LoginController#authenticate as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"sd/t6eG7JcctaE6yvdjdCUJC0HUwX84hzUZOtFI8F2JlLuAL3oqkicy6FRySXV5sfOplNoeyVad73qcMdmAPqg==", "user_name"=>"Clifford", "password"=>"[FILTERED]"}
+  [1m[36mUser Load (3.0ms)[0m  [1m[35mEXEC sp_executesql N'SELECT  [tblSecurityUsers].* FROM [tblSecurityUsers] WHERE [tblSecurityUsers].[LoginName] = @0  ORDER BY [tblSecurityUsers].[Id] ASC OFFSET 0 ROWS FETCH NEXT @1 ROWS ONLY', N'@0 varchar(50), @1 int', @0 = 'Clifford', @1 = 1[0m  [["LoginName", nil], ["LIMIT", nil]]
+Redirected to http://10.0.2.71:1000/server_accounts
+Completed 302 Found in 356ms (ActiveRecord: 166.0ms)
+
+
+Started GET "/server_accounts" for 10.0.2.71 at 2018-03-27 16:37:57 +0800
+Processing by ServerAccountsController#index as HTML
+  [1m[36mServerAccount Load (3.0ms)[0m  [1m[35mEXEC sp_executesql N'SELECT  [tblServerAccounts].* FROM [tblServerAccounts] WHERE (Active = 1)  ORDER BY AccountCode asc OFFSET @0 ROWS FETCH NEXT @1 ROWS ONLY', N'@0 int, @1 int', @0 = 0, @1 = 6[0m  [["OFFSET", nil], ["LIMIT", nil]]
+  Rendering server_accounts/index.html.erb within layouts/application
+  [1m[35m (2.0ms)[0m  [1m[34mSELECT COUNT(*) FROM [tblServerAccounts] WHERE (Active = 1)[0m
+  Rendered server_accounts/_server_accounts.html.erb (19.0ms)
+  Rendered server_accounts/index.html.erb within layouts/application (58.0ms)
+Completed 200 OK in 1245ms (Views: 1009.6ms | ActiveRecord: 117.0ms)
+
+
+Started GET "/logout" for 10.0.2.71 at 2018-03-27 16:38:07 +0800
+Processing by LogoutController#index as HTML
+Redirected to http://10.0.2.71:1000/
+Completed 302 Found in 3ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 10.0.2.71 at 2018-03-27 16:38:07 +0800
+Processing by LoginController#index as HTML
+  Rendering login/index.html.erb within layouts/application
+  Rendered login/index.html.erb within layouts/application (4.0ms)
+Completed 200 OK in 932ms (Views: 907.4ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/login/authenticate" for 10.0.2.71 at 2018-03-27 16:38:13 +0800
+Processing by LoginController#authenticate as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"fmr77V7IwSBNLB/wRwU2Pz/uIUckYVNK6mudKDv43AvrdtphJ+obITaTiX1uFESQnDkjXy/FW2Sc80ZxjgHZqw==", "user_name"=>"Clifford", "password"=>"[FILTERED]"}
+  [1m[36mUser Load (1.0ms)[0m  [1m[35mEXEC sp_executesql N'SELECT  [tblSecurityUsers].* FROM [tblSecurityUsers] WHERE [tblSecurityUsers].[LoginName] = @0  ORDER BY [tblSecurityUsers].[Id] ASC OFFSET 0 ROWS FETCH NEXT @1 ROWS ONLY', N'@0 varchar(50), @1 int', @0 = 'Clifford', @1 = 1[0m  [["LoginName", nil], ["LIMIT", nil]]
+Redirected to http://10.0.2.71:1000/server_accounts
+Completed 302 Found in 100ms (ActiveRecord: 1.0ms)
+
+
+Started GET "/server_accounts" for 10.0.2.71 at 2018-03-27 16:38:13 +0800
+Processing by ServerAccountsController#index as HTML
+  [1m[36mServerAccount Load (5.0ms)[0m  [1m[35mEXEC sp_executesql N'SELECT  [tblServerAccounts].* FROM [tblServerAccounts] WHERE (Active = 1)  ORDER BY AccountCode asc OFFSET @0 ROWS FETCH NEXT @1 ROWS ONLY', N'@0 int, @1 int', @0 = 0, @1 = 6[0m  [["OFFSET", nil], ["LIMIT", nil]]
+  Rendering server_accounts/index.html.erb within layouts/application
+  [1m[35m (2.0ms)[0m  [1m[34mSELECT COUNT(*) FROM [tblServerAccounts] WHERE (Active = 1)[0m
+  Rendered server_accounts/_server_accounts.html.erb (19.0ms)
+  Rendered server_accounts/index.html.erb within layouts/application (56.0ms)
+Completed 200 OK in 964ms (Views: 900.9ms | ActiveRecord: 7.0ms)
+
+
+Started GET "/logout" for 10.0.2.71 at 2018-03-27 16:38:17 +0800
+Processing by LogoutController#index as HTML
+Redirected to http://10.0.2.71:1000/
+Completed 302 Found in 4ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 10.0.2.71 at 2018-03-27 16:38:17 +0800
+Processing by LoginController#index as HTML
+  Rendering login/index.html.erb within layouts/application
+  Rendered login/index.html.erb within layouts/application (2.0ms)
+Completed 200 OK in 857ms (Views: 810.9ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/login/authenticate" for 10.0.2.71 at 2018-03-27 16:38:49 +0800
+  [1m[35mSQL (1.0ms)[0m  [1m[35mUSE [PPH_JAPPL][0m
+  [1m[35m (1.0ms)[0m  [1m[34mSELECT [schema_migrations].[version] FROM [schema_migrations]  ORDER BY [schema_migrations].[version] ASC[0m
+Processing by LoginController#authenticate as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"eTRz/bKR02Y5j+SlhOx8dJJkOB+gmdRAhPGsh2CpID6L6b8AhIAiCrM9NmC5MSscV80aKOLE+Vw/K7mrub1pQw==", "user_name"=>"Clifford", "password"=>"[FILTERED]"}
+  [1m[36mUser Load (2.0ms)[0m  [1m[35mEXEC sp_executesql N'SELECT  [tblSecurityUsers].* FROM [tblSecurityUsers] WHERE [tblSecurityUsers].[LoginName] = @0  ORDER BY [tblSecurityUsers].[Id] ASC OFFSET 0 ROWS FETCH NEXT @1 ROWS ONLY', N'@0 varchar(50), @1 int', @0 = 'Clifford', @1 = 1[0m  [["LoginName", nil], ["LIMIT", nil]]
+Redirected to http://10.0.2.71:1000/
+Completed 302 Found in 352ms (ActiveRecord: 127.0ms)
+
+
+Started GET "/" for 10.0.2.71 at 2018-03-27 16:39:01 +0800
+Processing by LoginController#index as HTML
+  Rendering login/index.html.erb within layouts/application
+  Rendered login/index.html.erb within layouts/application (2.0ms)
+Completed 200 OK in 874ms (Views: 865.3ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/login/authenticate" for 10.0.2.71 at 2018-03-27 16:39:23 +0800
+Processing by LoginController#authenticate as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"GGFs7Hd96Nc+Q9ehrEJt5SYjesWCDk1XObSkfcoRoX8hhG8hEeCqGdADkPNGvFWD8aSCDUfs01kR818MX6QInA==", "user_name"=>"Clifford", "password"=>"[FILTERED]"}
+  [1m[36mUser Load (2.0ms)[0m  [1m[35mEXEC sp_executesql N'SELECT  [tblSecurityUsers].* FROM [tblSecurityUsers] WHERE [tblSecurityUsers].[LoginName] = @0  ORDER BY [tblSecurityUsers].[Id] ASC OFFSET 0 ROWS FETCH NEXT @1 ROWS ONLY', N'@0 varchar(50), @1 int', @0 = 'Clifford', @1 = 1[0m  [["LoginName", nil], ["LIMIT", nil]]
+Redirected to http://10.0.2.71:1000/
+Completed 302 Found in 106ms (ActiveRecord: 2.0ms)
+
+
+Started GET "/" for 10.0.2.71 at 2018-03-27 16:39:23 +0800
+Processing by LoginController#index as HTML
+  Rendering login/index.html.erb within layouts/application
+  Rendered login/index.html.erb within layouts/application (4.0ms)
+Completed 200 OK in 1011ms (Views: 972.1ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/login/authenticate" for 10.0.2.71 at 2018-03-27 16:39:49 +0800
+  [1m[35mSQL (1.0ms)[0m  [1m[35mUSE [PPH_JAPPL][0m
+  [1m[35m (1.0ms)[0m  [1m[34mSELECT [schema_migrations].[version] FROM [schema_migrations]  ORDER BY [schema_migrations].[version] ASC[0m
+Processing by LoginController#authenticate as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"J4FE2soLiAdLwsqpxd500ZkIHzRIoqdR0uWUiC+eWugeZEcXrJbKyaWCjfsvIEy3To/n/I1AOV/6om/5uivzCw==", "user_name"=>"Clifford", "password"=>"[FILTERED]"}
+  [1m[36mUser Load (1.0ms)[0m  [1m[35mEXEC sp_executesql N'SELECT  [tblSecurityUsers].* FROM [tblSecurityUsers] WHERE [tblSecurityUsers].[LoginName] = @0  ORDER BY [tblSecurityUsers].[Id] ASC OFFSET 0 ROWS FETCH NEXT @1 ROWS ONLY', N'@0 varchar(50), @1 int', @0 = 'Clifford', @1 = 1[0m  [["LoginName", nil], ["LIMIT", nil]]
+Redirected to http://10.0.2.71:1000/server_accounts
+Completed 302 Found in 404ms (ActiveRecord: 164.0ms)
+
+
+Started GET "/server_accounts" for 10.0.2.71 at 2018-03-27 16:40:03 +0800
+Processing by ServerAccountsController#index as HTML
+  [1m[36mServerAccount Load (1.0ms)[0m  [1m[35mEXEC sp_executesql N'SELECT  [tblServerAccounts].* FROM [tblServerAccounts] WHERE (Active = 1)  ORDER BY AccountCode asc OFFSET @0 ROWS FETCH NEXT @1 ROWS ONLY', N'@0 int, @1 int', @0 = 0, @1 = 6[0m  [["OFFSET", nil], ["LIMIT", nil]]
+  Rendering server_accounts/index.html.erb within layouts/application
+  [1m[35m (1.0ms)[0m  [1m[34mSELECT COUNT(*) FROM [tblServerAccounts] WHERE (Active = 1)[0m
+  Rendered server_accounts/_server_accounts.html.erb (17.0ms)
+  Rendered server_accounts/index.html.erb within layouts/application (33.0ms)
+Completed 200 OK in 961ms (Views: 894.2ms | ActiveRecord: 32.0ms)
+
+
+Started GET "/logout" for 10.0.2.71 at 2018-03-27 16:40:06 +0800
+Processing by LogoutController#index as HTML
+Redirected to http://10.0.2.71:1000/
+Completed 302 Found in 3ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 10.0.2.71 at 2018-03-27 16:40:06 +0800
+Processing by LoginController#index as HTML
+  Rendering login/index.html.erb within layouts/application
+  Rendered login/index.html.erb within layouts/application (3.0ms)
+Completed 200 OK in 740ms (Views: 715.5ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/login/authenticate" for 10.0.5.30 at 2018-03-27 16:44:13 +0800
+Cannot render console from 10.0.5.30! Allowed networks: 10.0.2.71, 127.0.0.0/127.255.255.255, ::1
+Processing by LoginController#authenticate as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"J0u/4U3d3CNIQhjviDfvda1WGASGvkzykoojRBLDG6Ea1BEFubs1+u9v4Tfmt4MPpYsxtAjSTzNf0KYSHMn/bw==", "user_name"=>"Clifford", "password"=>"[FILTERED]"}
+Can't verify CSRF token authenticity.
+Completed 422 Unprocessable Entity in 5ms (ActiveRecord: 0.0ms)
+
+
+  
+ActionController::InvalidAuthenticityToken (ActionController::InvalidAuthenticityToken):
+  
+actionpack (5.1.4) lib/action_controller/metal/request_forgery_protection.rb:195:in `handle_unverified_request'
+actionpack (5.1.4) lib/action_controller/metal/request_forgery_protection.rb:227:in `handle_unverified_request'
+actionpack (5.1.4) lib/action_controller/metal/request_forgery_protection.rb:222:in `verify_authenticity_token'
+activesupport (5.1.4) lib/active_support/callbacks.rb:413:in `block in make_lambda'
+activesupport (5.1.4) lib/active_support/callbacks.rb:197:in `block (2 levels) in halting'
+actionpack (5.1.4) lib/abstract_controller/callbacks.rb:12:in `block (2 levels) in <module:Callbacks>'
+activesupport (5.1.4) lib/active_support/callbacks.rb:198:in `block in halting'
+activesupport (5.1.4) lib/active_support/callbacks.rb:507:in `block in invoke_before'
+activesupport (5.1.4) lib/active_support/callbacks.rb:507:in `each'
+activesupport (5.1.4) lib/active_support/callbacks.rb:507:in `invoke_before'
+activesupport (5.1.4) lib/active_support/callbacks.rb:130:in `run_callbacks'
+actionpack (5.1.4) lib/abstract_controller/callbacks.rb:19:in `process_action'
+actionpack (5.1.4) lib/action_controller/metal/rescue.rb:20:in `process_action'
+actionpack (5.1.4) lib/action_controller/metal/instrumentation.rb:32:in `block in process_action'
+activesupport (5.1.4) lib/active_support/notifications.rb:166:in `block in instrument'
+activesupport (5.1.4) lib/active_support/notifications/instrumenter.rb:21:in `instrument'
+activesupport (5.1.4) lib/active_support/notifications.rb:166:in `instrument'
+actionpack (5.1.4) lib/action_controller/metal/instrumentation.rb:30:in `process_action'
+actionpack (5.1.4) lib/action_controller/metal/params_wrapper.rb:252:in `process_action'
+activerecord (5.1.4) lib/active_record/railties/controller_runtime.rb:22:in `process_action'
+actionpack (5.1.4) lib/abstract_controller/base.rb:124:in `process'
+actionview (5.1.4) lib/action_view/rendering.rb:30:in `process'
+actionpack (5.1.4) lib/action_controller/metal.rb:189:in `dispatch'
+actionpack (5.1.4) lib/action_controller/metal.rb:253:in `dispatch'
+actionpack (5.1.4) lib/action_dispatch/routing/route_set.rb:49:in `dispatch'
+actionpack (5.1.4) lib/action_dispatch/routing/route_set.rb:31:in `serve'
+actionpack (5.1.4) lib/action_dispatch/journey/router.rb:50:in `block in serve'
+actionpack (5.1.4) lib/action_dispatch/journey/router.rb:33:in `each'
+actionpack (5.1.4) lib/action_dispatch/journey/router.rb:33:in `serve'
+actionpack (5.1.4) lib/action_dispatch/routing/route_set.rb:834:in `call'
+rack (2.0.3) lib/rack/etag.rb:25:in `call'
+rack (2.0.3) lib/rack/conditional_get.rb:38:in `call'
+rack (2.0.3) lib/rack/head.rb:12:in `call'
+rack (2.0.3) lib/rack/session/abstract/id.rb:232:in `context'
+rack (2.0.3) lib/rack/session/abstract/id.rb:226:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/cookies.rb:613:in `call'
+activerecord (5.1.4) lib/active_record/migration.rb:556:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/callbacks.rb:26:in `block in call'
+activesupport (5.1.4) lib/active_support/callbacks.rb:97:in `run_callbacks'
+actionpack (5.1.4) lib/action_dispatch/middleware/callbacks.rb:24:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/debug_exceptions.rb:59:in `call'
+web-console (3.5.1) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.5.1) lib/web_console/middleware.rb:20:in `block in call'
+web-console (3.5.1) lib/web_console/middleware.rb:18:in `catch'
+web-console (3.5.1) lib/web_console/middleware.rb:18:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.1.4) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.1.4) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.1.4) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.1.4) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.1.4) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.1.4) lib/rails/rack/logger.rb:24:in `call'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/remote_ip.rb:79:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/request_id.rb:25:in `call'
+rack (2.0.3) lib/rack/method_override.rb:22:in `call'
+rack (2.0.3) lib/rack/runtime.rb:22:in `call'
+activesupport (5.1.4) lib/active_support/cache/strategy/local_cache_middleware.rb:27:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/static.rb:125:in `call'
+rack (2.0.3) lib/rack/sendfile.rb:111:in `call'
+railties (5.1.4) lib/rails/engine.rb:522:in `call'
+puma (3.11.0) lib/puma/configuration.rb:225:in `call'
+puma (3.11.0) lib/puma/server.rb:624:in `handle_request'
+puma (3.11.0) lib/puma/server.rb:438:in `process_client'
+puma (3.11.0) lib/puma/server.rb:302:in `block in run'
+puma (3.11.0) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+Started GET "/" for 10.0.5.30 at 2018-03-27 16:44:26 +0800
+Cannot render console from 10.0.5.30! Allowed networks: 10.0.2.71, 127.0.0.0/127.255.255.255, ::1
+Processing by LoginController#index as HTML
+  Rendering login/index.html.erb within layouts/application
+  Rendered login/index.html.erb within layouts/application (4.0ms)
+Completed 200 OK in 862ms (Views: 822.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 10.0.5.30 at 2018-03-27 16:44:28 +0800
+Cannot render console from 10.0.5.30! Allowed networks: 10.0.2.71, 127.0.0.0/127.255.255.255, ::1
+Processing by LoginController#index as HTML
+  Rendering login/index.html.erb within layouts/application
+  Rendered login/index.html.erb within layouts/application (3.0ms)
+Completed 200 OK in 772ms (Views: 741.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 10.0.5.30 at 2018-03-27 16:44:31 +0800
+Cannot render console from 10.0.5.30! Allowed networks: 10.0.2.71, 127.0.0.0/127.255.255.255, ::1
+Processing by LoginController#index as HTML
+  Rendering login/index.html.erb within layouts/application
+  Rendered login/index.html.erb within layouts/application (3.0ms)
+Completed 200 OK in 845ms (Views: 808.2ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/login/authenticate" for 10.0.5.30 at 2018-03-27 16:44:47 +0800
+Cannot render console from 10.0.5.30! Allowed networks: 10.0.2.71, 127.0.0.0/127.255.255.255, ::1
+Processing by LoginController#authenticate as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"gY2jk/qG4ao12F0U6DTOcZolheR9cLkhHH4O6Lyu2u2sIs2vHpNzum9nw5CX7fR4y5oX5jvH25iqmcR7PSC7pA==", "user_name"=>"Clifford", "password"=>"[FILTERED]"}
+  [1m[36mUser Load (2.0ms)[0m  [1m[35mEXEC sp_executesql N'SELECT  [tblSecurityUsers].* FROM [tblSecurityUsers] WHERE [tblSecurityUsers].[LoginName] = @0  ORDER BY [tblSecurityUsers].[Id] ASC OFFSET 0 ROWS FETCH NEXT @1 ROWS ONLY', N'@0 varchar(50), @1 int', @0 = 'Clifford', @1 = 1[0m  [["LoginName", nil], ["LIMIT", nil]]
+Redirected to http://10.0.2.71:1000/server_accounts
+Completed 302 Found in 125ms (ActiveRecord: 2.0ms)
+
+
+Started GET "/server_accounts" for 10.0.5.30 at 2018-03-27 16:44:47 +0800
+Cannot render console from 10.0.5.30! Allowed networks: 10.0.2.71, 127.0.0.0/127.255.255.255, ::1
+Processing by ServerAccountsController#index as HTML
+  [1m[36mServerAccount Load (4.0ms)[0m  [1m[35mEXEC sp_executesql N'SELECT  [tblServerAccounts].* FROM [tblServerAccounts] WHERE (Active = 1)  ORDER BY AccountCode asc OFFSET @0 ROWS FETCH NEXT @1 ROWS ONLY', N'@0 int, @1 int', @0 = 0, @1 = 6[0m  [["OFFSET", nil], ["LIMIT", nil]]
+  Rendering server_accounts/index.html.erb within layouts/application
+  [1m[35m (2.0ms)[0m  [1m[34mSELECT COUNT(*) FROM [tblServerAccounts] WHERE (Active = 1)[0m
+  Rendered server_accounts/_server_accounts.html.erb (43.0ms)
+  Rendered server_accounts/index.html.erb within layouts/application (86.0ms)
+Completed 200 OK in 1118ms (Views: 1045.0ms | ActiveRecord: 6.0ms)
+
+
+Started GET "/server_accounts" for 10.0.5.30 at 2018-03-27 16:45:21 +0800
+Cannot render console from 10.0.5.30! Allowed networks: 10.0.2.71, 127.0.0.0/127.255.255.255, ::1
+Processing by ServerAccountsController#index as HTML
+  [1m[36mServerAccount Load (3.0ms)[0m  [1m[35mEXEC sp_executesql N'SELECT  [tblServerAccounts].* FROM [tblServerAccounts] WHERE (Active = 1)  ORDER BY AccountCode asc OFFSET @0 ROWS FETCH NEXT @1 ROWS ONLY', N'@0 int, @1 int', @0 = 0, @1 = 6[0m  [["OFFSET", nil], ["LIMIT", nil]]
+  Rendering server_accounts/index.html.erb within layouts/application
+  [1m[35m (1.0ms)[0m  [1m[34mSELECT COUNT(*) FROM [tblServerAccounts] WHERE (Active = 1)[0m
+  Rendered server_accounts/_server_accounts.html.erb (18.0ms)
+  Rendered server_accounts/index.html.erb within layouts/application (56.0ms)
+Completed 200 OK in 958ms (Views: 896.6ms | ActiveRecord: 4.0ms)
+
+
+Started GET "/server_accounts" for 10.0.5.30 at 2018-03-27 16:45:25 +0800
+Cannot render console from 10.0.5.30! Allowed networks: 10.0.2.71, 127.0.0.0/127.255.255.255, ::1
+Processing by ServerAccountsController#index as HTML
+  [1m[36mServerAccount Load (3.0ms)[0m  [1m[35mEXEC sp_executesql N'SELECT  [tblServerAccounts].* FROM [tblServerAccounts] WHERE (Active = 1)  ORDER BY AccountCode asc OFFSET @0 ROWS FETCH NEXT @1 ROWS ONLY', N'@0 int, @1 int', @0 = 0, @1 = 6[0m  [["OFFSET", nil], ["LIMIT", nil]]
+  Rendering server_accounts/index.html.erb within layouts/application
+  [1m[35m (2.0ms)[0m  [1m[34mSELECT COUNT(*) FROM [tblServerAccounts] WHERE (Active = 1)[0m
+  Rendered server_accounts/_server_accounts.html.erb (18.0ms)
+  Rendered server_accounts/index.html.erb within layouts/application (57.0ms)
+Completed 200 OK in 983ms (Views: 917.1ms | ActiveRecord: 5.0ms)
+
+
+Started GET "/server_accounts" for 10.0.5.30 at 2018-03-27 16:45:43 +0800
+Cannot render console from 10.0.5.30! Allowed networks: 10.0.2.71, 127.0.0.0/127.255.255.255, ::1
+Processing by ServerAccountsController#index as HTML
+  [1m[36mServerAccount Load (3.0ms)[0m  [1m[35mEXEC sp_executesql N'SELECT  [tblServerAccounts].* FROM [tblServerAccounts] WHERE (Active = 1)  ORDER BY AccountCode asc OFFSET @0 ROWS FETCH NEXT @1 ROWS ONLY', N'@0 int, @1 int', @0 = 0, @1 = 6[0m  [["OFFSET", nil], ["LIMIT", nil]]
+  Rendering server_accounts/index.html.erb within layouts/application
+  [1m[35m (1.0ms)[0m  [1m[34mSELECT COUNT(*) FROM [tblServerAccounts] WHERE (Active = 1)[0m
+  Rendered server_accounts/_server_accounts.html.erb (18.0ms)
+  Rendered server_accounts/index.html.erb within layouts/application (57.0ms)
+Completed 200 OK in 871ms (Views: 809.4ms | ActiveRecord: 4.0ms)
+
+
